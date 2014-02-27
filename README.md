@@ -33,7 +33,7 @@ Our deadline for these features is
 ## Wireframes
 [Homepage](http://min.us/i/3JvJV9DXc0ja)
 [User Dashboard](http://min.us/i/hNUsQuYdqIhx)
-[View Course](http://min.us/i/bexutTXZyQcaP)
+<a target="_blank" href="http://minus.com/i/bexutTXZyQcaP"><img src="http://i.minus.com/jbexutTXZyQcaP.png" border="0"/>View Course</a>
 
 
 
