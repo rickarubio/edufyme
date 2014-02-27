@@ -31,8 +31,9 @@ Our deadline for these features is
   * We will have course data pulled in from EdX at a minimum to populate our web app.
  
 ## Wireframes
-[Homepage](http://min.us/i/3JvJV9DXc0ja)
-[User Dashboard](http://min.us/i/hNUsQuYdqIhx)
+
+<a target="_blank" href="http://minus.com/i/b0t2GTNIA5w9Y"><img src="http://i.minus.com/jb0t2GTNIA5w9Y.png" border="0"/>Homepage</a>
+<a target="_blank" href="http://minus.com/i/6owZYjDyXI2H"><img src="http://i.minus.com/j6owZYjDyXI2H.png" border="0"/>User Dashboard</a>
 <a target="_blank" href="http://minus.com/i/bexutTXZyQcaP"><img src="http://i.minus.com/jbexutTXZyQcaP.png" border="0"/>View Course</a>
 
 
