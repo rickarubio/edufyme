@@ -36,13 +36,11 @@ Homepage
 
 <a target="_blank" href="http://minus.com/i/b0t2GTNIA5w9Y"><img src="http://i.minus.com/jb0t2GTNIA5w9Y.png" border="0"/></a>
 
-User Dashboard
-<a target="_blank" href="http://minus.com/i/6owZYjDyXI2H"><img src="http://i.minus.com/j6owZYjDyXI2H.png" border="0"/> Dashboard</a>
-
 View Course
 <a target="_blank" href="http://minus.com/i/bexutTXZyQcaP"><img src="http://i.minus.com/jbexutTXZyQcaP.png" border="0"/></a>
 
-
+User Dashboard
+<a target="_blank" href="http://minus.com/i/6owZYjDyXI2H"><img src="http://i.minus.com/j6owZYjDyXI2H.png" border="0"/> Dashboard</a>
 
 ## Workflow
 
