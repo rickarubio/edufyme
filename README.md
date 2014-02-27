@@ -31,9 +31,9 @@ Our deadline for these features is
   * We will have course data pulled in from EdX at a minimum to populate our web app.
  
 ## Wireframes
-![Homepage](http://min.us/i/3JvJV9DXc0ja)
-![User Dashboard](http://min.us/i/hNUsQuYdqIhx)
-![View Course](http://min.us/i/bexutTXZyQcaP)
+[Homepage](http://min.us/i/3JvJV9DXc0ja)
+[User Dashboard](http://min.us/i/hNUsQuYdqIhx)
+[View Course](http://min.us/i/bexutTXZyQcaP)
 
 
 
@@ -42,6 +42,6 @@ Our deadline for these features is
 Trello will be used by the team to keep track of what is being worked on and what
 has been done.
 
-![Trello Link](https://trello.com/b/xX59AaWG/open-course-tracker)
+[Trello Link](https://trello.com/b/xX59AaWG/open-course-tracker)
 
 Features will be implemented in their own branches and pull requests will be submitted against the master branch. All team members are responsible for reviewing each other's pull requests and merging the pull request into master once reviewed.
