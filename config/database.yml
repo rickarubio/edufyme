@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: edufy_me_dev
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  host: localhost
+  username:
+  password:
+  database: edufy_me_test
+  pool: 5
+  timeout: 5000
