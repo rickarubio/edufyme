@@ -42,6 +42,10 @@ View Course
 User Dashboard
 <a target="_blank" href="http://minus.com/i/6owZYjDyXI2H"><img src="http://i.minus.com/j6owZYjDyXI2H.png" border="0"/> </a>
 
+## Database Schema
+
+![database schema](http://i5.minus.com/iQ7OBaJEWOwB3.png)
+
 ## Workflow
 
 Trello will be used by the team to keep track of what is being worked on and what
