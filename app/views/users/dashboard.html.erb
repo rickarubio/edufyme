@@ -1,10 +1,10 @@
 <%= render "shared/top_navbar" %>
-<p>Hello <%= current_user.email %></p>
-<br>
-<br>
-<%= text_field_tag :search, params[:search] %>
-<%= submit_tag "Search", :name => nil %>
 
+
+<div class="container">
+	<p>Hello <%= current_user.email %></p>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
 	<div class="current-courses">
 		<h1>Current Courses</h1>
 		<img class="current-courses-image" src="#">
@@ -23,5 +23,4 @@
 			<li class="completed-courses-list">List of Courses</li>
 		</ul>
 	</div>
-
 </div>

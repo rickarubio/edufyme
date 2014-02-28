@@ -1,21 +1,22 @@
 <%= render "shared/top_navbar" %>
-<div class="featured-courses-title">
-  <h3>Featured Courses</h3>
-</div>
+<div class="container">
+  <div class="featured-courses-title">
+    <h3>Featured Courses</h3>
+  </div>
 
-<div class="all-courses-container">
-  <% @courses.map do |course| %>   
-  <div class="course-container">
-    <div class="course-image">
-      <img src=<%=course.course_img_url%>>
-      <div class="course-title">
-        <h4><%= link_to "#{course.title}", course.course_url %></h4>
-        <h5><%=course.school.name%></h5>
-        <div class="course-date">
-          <span class="date-display">Start Date: <%=course.start_date%></span>
+  <div class="courses-container">
+    <% @courses.map do |course| %>   
+    <div class="course">
+      <div class="course-image">
+        <img src=<%=course.course_img_url%>>
+        <div class="course-description">
+          <h4><%= link_to "#{course.title}", course.course_url %></h4>
+          <h5><%=course.school.name%></h5>
+          <div class="course-date">
+            <span class="date-display">Start Date: <%=course.start_date%></span>
+          </div>
         </div>
       </div>
-    </div>
-  </div> 
-  <%end%>
+    </div> 
+    <%end%>
 </div>
