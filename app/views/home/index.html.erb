@@ -4,29 +4,38 @@
 </div>
 
 <div class="courses-container">
-    <div class="course-image">
+    <div class="course-image" id="box-1">
       <div class="course-description">
       </div>
     </div>
-    <div class="course-image">
+    <div class="course-image" id="box-2">
       <div class="course-description">
       </div>
     </div>
-    <div class="course-image">
+    <div class="course-image" id="box-3">
       <div class="course-description">
       </div>
     </div>
-    <div class="course-image">
+    <div class="course-image"id="box-4">
       <div class="course-description">
       </div>
     </div>
-    <div class="course-image">
+    <div class="course-image"id="box-5">
       <div class="course-description">
       </div>
     </div>
-    <div class="course-image">
+    <div class="course-image"id="box-6">
       <div class="course-description">
       </div>
     </div>
 </div>
 
+<div class="hidden">
+  <% @courses.map do |course| %>
+    <%=course.course_img_url%>
+    <p><%= link_to "course.title", course.course_url %></p>
+    <p><%= course.description %></p>
+    <p><%= course.start_date %></p>
+    <p><%= course.end_date %></p>
+  <% end %>
+</div>
