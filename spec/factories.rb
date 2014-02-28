@@ -5,4 +5,8 @@ FactoryGirl.define do
     course_url "www.example.com/math"
     start_date Date.today
   end
+
+  factory :category do
+    name "Math"
+  end
 end
