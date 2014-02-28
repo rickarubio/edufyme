@@ -36,18 +36,26 @@ def seed_categories
 end
 
 def seed_courses
-  # 100.times do
-  #   Course.create(
-  #     school_id: School.all.sample.id,
-
-  #     )
-  # end
+  course_numbers = [101, 206, 314, 424]
+  100.times do
+    random_num = rand(10)
+    Course.create(
+      school_id: School.all.sample.id,
+      category_id: Category.all.sample.id,
+      title: Faker::Company.bs + " " + course_numbers.sample.to_s,
+      description: Faker::Lorem.paragraphs,
+      course_url: ("http://www." + Faker::Internet.domain_name),
+      course_img_url: "https://www.irwachapter4.org/wp-content/uploads/2010/09/coursesoffered.jpg",
+      start_date: rand(random_num).days.ago(Date.today),
+      end_date: rand(random_num).days.from_now)
+  end
 end
 
 def seed_teachers
 end
 
 def seed_users
+  #implemented by spencer
 end
 
 def seed_course_users
