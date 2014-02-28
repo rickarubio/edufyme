@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  attr_accessible :email, :password
   has_many :course_users
   has_many :courses, :through => :course_users
   # Include default devise modules. Others available are:

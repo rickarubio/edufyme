@@ -62,10 +62,15 @@ def seed_teachers
 end
 
 def seed_users
-  #implemented by spencer
+  500.times do
+    User.create(
+      email: Faker::Internet.email,
+      password: "password")
+  end
 end
 
 def seed_course_users
+  # User.all.do
 end
 
 def seed_course_teachers
