@@ -21,7 +21,8 @@ Our deadline for these features is
 
 1. Dashboard which will include: 
   * The courses the user is taking.
-  * The courses the user has finished. The courses the user is interested in taking.
+  * The courses the user has finished. 
+  * The courses the user is interested in taking.
 
 2. Site skeleton
   * Displays all courses on the homepage
@@ -44,7 +45,7 @@ User Dashboard
 
 ## Database Schema
 
-![database schema](http://i5.minus.com/iQ7OBaJEWOwB3.png)
+![database schema](http://i7.minus.com/iLiITXPcoHG0X.png)
 
 ## Workflow
 
