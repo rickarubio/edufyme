@@ -4,25 +4,44 @@ def seed_schools
     "http://www.studyco.com/upload/images/oxford_university(1).jpg",
     "http://www.hdpaperwall.com/wp-content/uploads/2013/11/Harvard-University.jpg",
     "http://www.huntington-study-group.org/Portals/0/University%20of%20tennessee.jpg"]
-  5.times do
+  10.times do
     School.create(
       name: (Faker::Company.name + " University"),
-      school_url: ("http://www." + Faker::Internet.domain_name)
+      school_url: ("http://www." + Faker::Internet.domain_name),
       school_img_url: school_images.sample
       )
   end
 end
 
-def seed_courses
-  50.times do
-    Course.create(
-      )
+def seed_categories
+  categories = [
+    "Mathematics",
+    "Chemistry",
+    "Engineering",
+    "Cryptozoology",
+    "Mysticism"]
+  category_img_urls = [
+    "http://upload.wikimedia.org/wikipedia/commons/8/89/Pure-mathematics-formul%C3%A6-blackboard.jpg",
+    "http://www.dvc.edu/org/images/beakers.jpg",
+    "http://rossengineers.com/wp-content/themes/rosseng/img/j0439299.jpg",
+    "http://images5.fanpop.com/image/photos/31400000/Nessie-cryptozoology-31461575-1024-768.jpg",
+    "http://www.seedsofunfolding.org/issues/11_08/Mysticism.jpg"]
+  category_index = 0
+  5.times do
+    Category.create(
+      name: categories[category_index],
+      category_img_url: category_img_urls[category_index])
+    category_index += 1
   end
 end
 
+def seed_courses
+  # 100.times do
+  #   Course.create(
+  #     school_id: School.all.sample.id,
 
-
-def seed_categories
+  #     )
+  # end
 end
 
 def seed_teachers
@@ -39,8 +58,8 @@ end
 
 def run_once
   seed_schools
-  seed_courses
   seed_categories
+  seed_courses
   seed_teachers
   seed_users
   seed_course_users
