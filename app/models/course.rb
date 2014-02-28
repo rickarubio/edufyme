@@ -13,8 +13,7 @@ class Course < ActiveRecord::Base
   end
 
   def self.search_for(search_terms)
-    search_results = []
-    search_results << Course.all.select { |course| course.title.include?(search_terms) || course.description.include?(search_terms) }
+    Course.all.select { |course| course.title.downcase.include?(search_terms.downcase) || course.description.downcase.include?(search_terms.downcase) }
   end
 
 end
