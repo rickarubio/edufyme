@@ -1,3 +1,5 @@
+* { margin: 0; padding: 0; }
+
 .nav-bar {
   margin: 0;
   padding: 0;
@@ -25,8 +27,7 @@ nav li {
   margin: 0 auto;
   height: 90%;
   width: 90%;
-  /*height: 700px;
-  width: 1000px;*/
+  max-width: 1000px;
   background: yellow;
   min-width: 600px;
 }
@@ -36,8 +37,8 @@ nav li {
   margin: 15px;
   width: 30%;
   /*margin-bottom: 100px;*/
- /* width: 300px;
-  height: 200px;*/
+  width: 300px;
+  height: 200px;
   background: blue;
 }
 
