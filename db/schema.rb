@@ -20,6 +20,22 @@ ActiveRecord::Schema.define(:version => 20140228001425) do
     t.datetime "updated_at",       :null => false
   end
 
+  create_table "course_teachers", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "course_id"
+    t.boolean  "starred"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "course_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.boolean  "starred"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "courses", :force => true do |t|
     t.integer  "school_id"
     t.integer  "category_id"
@@ -31,22 +47,6 @@ ActiveRecord::Schema.define(:version => 20140228001425) do
     t.date     "end_date"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-  end
-
-  create_table "courses_teachers", :force => true do |t|
-    t.integer  "teacher_id"
-    t.integer  "course_id"
-    t.boolean  "starred"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "courses_users", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "course_id"
-    t.boolean  "starred"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "schools", :force => true do |t|
