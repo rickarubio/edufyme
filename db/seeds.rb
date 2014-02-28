@@ -52,6 +52,13 @@ def seed_courses
 end
 
 def seed_teachers
+  40.times do
+    Teacher.create(
+      first_name: Faker::Name.first_name,
+      last_name: Faker::Name.last_name,
+      teacher_img_url: "http://casaguides.nrao.edu/images/c/c7/Einstein.jpg",
+      teacher_url: ("http://www." + Faker::Internet.domain_name))
+  end
 end
 
 def seed_users
