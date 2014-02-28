@@ -1,7 +1,7 @@
-class CoursesController < ActionController
+class CoursesController < ApplicationController
 
   def search
-    @courses = Courses.search_for(params[:search])
+    @courses = Course.search_for(params[:search])
     render :search_results
   end
 
