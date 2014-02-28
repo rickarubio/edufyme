@@ -1,21 +1,10 @@
-<div class="container">
-	<div class="nav-bar">
-		<h1>Edufy.me</h1>
-		<div class="nav">
-			<ul>
-				<li>Suggested For Me</li>
-				<li>School</li>
-				<li>Category</li>
-				<li>
-					<%# form_tag ROUTE_PATH, :method => 'get' do %>
-  				<%= text_field_tag :search, params[:search] %>
-  				<%= submit_tag "Search", :name => nil %>
-					<%# end %>
-				</li>
-			</ul>
-		</div>
-	</div>
+<%= render "shared/top_navbar" %>
 
+
+<div class="container">
+	<p>Hello <%= current_user.email %></p>
+	<%= text_field_tag :search, params[:search] %>
+	<%= submit_tag "Search", :name => nil %>
 	<div class="current-courses">
 		<h1>Current Courses</h1>
 		<img class="current-courses-image" src="#">
@@ -34,5 +23,4 @@
 			<li class="completed-courses-list">List of Courses</li>
 		</ul>
 	</div>
-
 </div>

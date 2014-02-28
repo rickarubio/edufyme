@@ -1,42 +1,41 @@
-<div class="nav-bar">
-  <nav class="nav">
-    <ul>
-      <li>Edufyme</li>
-      <li>Login</li>
-      <li>School</li>
-      <li>Category</li>
-    </ul>
-  </nav>
-</div>
+<%= render "shared/top_navbar" %>
 
-
-<div class="featured-courses-title">
-  <h4>Featured Courses</h4>
-</div>
-
-
-<div class="courses-container">
-
-  <div class="course">
-    <div class="course-image" id="image-1">
-    </div>
-    <div class="course-description">
-    </div>
+<div class="container">
+  <div class="featured-courses-title">
+    <h4>Featured Courses</h4>
   </div>
 
-  <div class="course">
-    <div class="course-image" id="image-1">
+  <div class="courses-container">
+
+    <div class="course">
+      <div class="course-image" id="image-1">
+      </div>
+      <div class="course-description">
+      </div>
     </div>
-    <div class="course-description">
+
+    <div class="course">
+      <div class="course-image" id="image-1">
+      </div>
+      <div class="course-description">
+      </div>
+    </div>
+
+    <div class="course">
+      <div class="course-image" id="image-1">
+      </div>
+      <div class="course-description">
+      </div>
     </div>
   </div>
-
-  <div class="course">
-    <div class="course-image" id="image-1">
-    </div>
-    <div class="course-description">
-    </div>
-  </div>
-
 </div>
 
+<div class="hidden">
+  <% @courses.map do |course| %>
+    <%=course.course_img_url%>
+    <p><%= link_to "course.title", course.course_url %></p>
+    <p><%= course.description %></p>
+    <p><%= course.start_date %></p>
+    <p><%= course.end_date %></p>
+  <% end %>
+</div>
