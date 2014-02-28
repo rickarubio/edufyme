@@ -1,7 +1,11 @@
 class CreateSchools < ActiveRecord::Migration
-  def up
-  end
+  def change
+    create_table :schools do |t|
+      t.string :name
+      t.string :school_url
+      t.string :school_img_url
 
-  def down
+      t.timestamps
+    end
   end
 end

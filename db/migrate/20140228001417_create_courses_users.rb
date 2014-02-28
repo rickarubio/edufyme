@@ -1,7 +1,11 @@
 class CreateCoursesUsers < ActiveRecord::Migration
-  def up
-  end
+  def change
+    create_table :courses_users do |t|
+      t.belongs_to :user
+      t.belongs_to :course
+      t.boolean :starred
 
-  def down
+      t.timestamps
+    end
   end
 end

@@ -11,7 +11,60 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140227224200) do
+ActiveRecord::Schema.define(:version => 20140228001425) do
+
+  create_table "categories", :force => true do |t|
+    t.string   "name"
+    t.string   "category_img_url"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
+  end
+
+  create_table "courses", :force => true do |t|
+    t.integer  "school_id"
+    t.integer  "category_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "course_url"
+    t.string   "course_img_url"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "courses_teachers", :force => true do |t|
+    t.integer  "teacher_id"
+    t.integer  "course_id"
+    t.boolean  "starred"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "courses_users", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "course_id"
+    t.boolean  "starred"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "schools", :force => true do |t|
+    t.string   "name"
+    t.string   "school_url"
+    t.string   "school_img_url"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "teacher_img_url"
+    t.string   "teacher_url"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false
