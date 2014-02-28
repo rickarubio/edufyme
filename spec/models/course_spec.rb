@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe Course do
-  let(:course){ FactoryGirl.create(:course) }
+  let(:course) { FactoryGirl.create(:course) }
   it "should have a title attribute" do
     expect(course).to respond_to :title
   end
