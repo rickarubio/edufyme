@@ -81,6 +81,12 @@ def seed_course_users
 end
 
 def seed_course_teachers
+  Course.all.count.times do |idx|
+    CourseTeacher.create(
+      teacher_id: rand(40),
+      course_id: idx,
+      starred: false)
+  end
 end
 
 def run_once
