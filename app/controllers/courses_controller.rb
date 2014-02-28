@@ -4,9 +4,13 @@ class CoursesController < ApplicationController
     @courses = Course.featured
   end
 
+  def show
+    @course = Course.find(params[:id])
+  end
+
   def search
     @courses = Course.search_for(params[:search])
-    render :search_results
+    render json: @courses
   end
 
   def filter
