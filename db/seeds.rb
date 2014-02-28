@@ -1,3 +1,5 @@
+I18n.enforce_available_locales = false
+
 def seed_schools
   school_images = [
     "http://studentcompetitions-general.s3.amazonaws.com/cyp-2014/img/lundsuniversitet_-_b.jpg",
@@ -70,7 +72,12 @@ def seed_users
 end
 
 def seed_course_users
-  # User.all.do
+  User.all.count.times do |idx|
+    CourseUser.create(
+      user_id: idx ,
+      course_id: Course.all.sample.id,
+      starred: false)
+  end
 end
 
 def seed_course_teachers
