@@ -44,9 +44,6 @@
 <datatype>INTEGER</datatype>
 <default>NULL</default><relation table="categories" row="id" />
 </row>
-<row name="teacher_id" null="1" autoincrement="0">
-<datatype>INTEGER</datatype>
-<default>NULL</default></row>
 <row name="title" null="1" autoincrement="0">
 <datatype>VARCHAR</datatype>
 <default>NULL</default></row>
@@ -188,7 +185,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="754" y="293" name="users_courses">
+<table x="754" y="293" name="course_users">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
@@ -207,7 +204,7 @@
 <part>id</part>
 </key>
 </table>
-<table x="751" y="94" name="courses_teachers">
+<table x="751" y="94" name="course_teachers">
 <row name="id" null="1" autoincrement="1">
 <datatype>INTEGER</datatype>
 <default>NULL</default></row>
