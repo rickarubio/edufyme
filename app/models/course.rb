@@ -1,5 +1,5 @@
 class Course < ActiveRecord::Base
-  attr_accessible :school_id, :category_id, :title, :description, :course_url, 
+  attr_accessible :school_id, :category_id, :title, :description, :course_url,
     :course_img_url, :start_date, :end_date
   belongs_to :school
   belongs_to :category
@@ -9,8 +9,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   def self.search_for(search_terms)
-    search_results = []
-    search_results << Course.all.select { |course| course.title.include?(search_terms) || course.description.include?(search_terms) }
+    Course.all.select { |course| course.title.downcase.include?(search_terms.downcase) || course.description.downcase.include?(search_terms.downcase) }
   end
-  
+
 end
