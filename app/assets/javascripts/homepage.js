@@ -4,7 +4,7 @@ $(document).ready(function(){
 
 
 bindEvents = function() {
-  $('.featured-courses-title').on('click', function(e) {
+  $('.courses-container').on('click', '.course', function(e) {
     e.preventDefault();
     Overlay.display();
   }),
@@ -28,6 +28,5 @@ var Overlay = (function() {
      $('.modal').css('display', 'none');
     }
   }
-
 
 }());
