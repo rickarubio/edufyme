@@ -23,10 +23,19 @@ describe Course do
   end
 
   describe "search" do
-    let!(:course){ FactoryGirl.create(:course) }
     it "should return courses with matching content" do
       expect(Course.search_for("math")[0]).to eq Course.find_by_title("Math")
       expect(Course.search_for("ALGEBRA")[0]).to eq Course.find_by_title("Math")
+    end
+  end
+
+  describe "filter" do
+    let!(:course) { FactoryGirl.create(:course) }
+    let!(:category) { FactoryGirl.create(:category) }
+    let!(:school) { FactoryGirl.create(:school) }
+    it "should return courses with filter" do
+      expect(Course.filter("Math")[0]).to eq Course.find_by_category_id(1)
+      expect(Course.filter("Hogwarts")[0]).to eq Course.find_by_school_id(1)
     end
   end
 end

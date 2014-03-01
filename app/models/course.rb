@@ -21,4 +21,7 @@ class Course < ActiveRecord::Base
     self.title.slice(0, max_title_length)
   end
 
+  def self.filter(filter_option)
+    Course.all.select { |course| course.category.name == filter_option || course.school.name == filter_option }
+  end
 end

@@ -1,9 +1,9 @@
 Edufyme::Application.routes.draw do
 
-  root to: 'home#index'
+  root to: 'courses#index'
   devise_for :users
   match 'users/:id' => 'users#dashboard', :as => :user_dashboard
-
+  resources :courses, only: [:index, :show]
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
