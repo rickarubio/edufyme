@@ -107,3 +107,8 @@ nav li {
 .course-description:hover {
   background-color: orange;
 }
+
+#load-ajax {
+  display: none;
+  text-align: center;
+}
