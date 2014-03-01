@@ -8,7 +8,7 @@
     <% @courses.map do |course| %>
     <div class="course" data-course-id=<%= course.id %>>
       <div class="course-image">
-        <img src=<%=course.course_img_url%>>
+        <img src=<%=course.course_img_url%> alt="Course Image">
         <div class="course-description">
           <%= link_to "#{course.short_title}", course.course_url %>
           <p><%=course.school.name%></p>
@@ -25,16 +25,20 @@
   </div>
   <div class="modal">
     <div class="overlay-course-main">
-      <button class="exit-modal">X</button>
       <h4 class="overlay-course-title"></h4>
-      <img src="">
+      <img src="" alt="Course Image">
       <p><a href=""></a></p>
       <p class="overlay-course-description"></p>
     </div>
     <div class="overlay-course-sidebar">
+      <!-- <button class="exit-modal">X</button> -->
       <button class="overlay-add-course">Add Course</button>
-      <p class="overlay-ratings"></p>
-      <p class="overlay-prerequisites"></p>
+      <div class="overlay-ratings">
+        <p></p>
+      </div>
+      <div class="overlay-prerequisites">
+        <p></p>
+      </div>
       <div class="overlay-teacher">
         <img src="">
         <p class="overlay-teacher-bio"></p>
@@ -42,8 +46,24 @@
     </div>
   </div>
 
-  <div id="load-ajax"><img src="images/ajax-loader.gif"></div>
 </div>
+
+<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Modal Login</a></center>
+
+  <div id="loginmodal" style="display:none;">
+    <h1>User Login</h1>
+    <form id="loginform" name="loginform" method="post" action="index.html">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+
+      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+    </form>
+  </div>
+
+<div id="load-ajax"><img src="images/ajax-loader.gif"></div>
 
 <div class='hidden'>
   <div class="course-template" data-course-id="">
