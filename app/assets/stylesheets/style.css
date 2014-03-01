@@ -63,7 +63,7 @@ nav li {
   position: relative;
   height: 75px;
   width: 100%;
-  background: red;
+  background-color: red;
 }
 
 .container {
@@ -98,4 +98,12 @@ nav li {
 .exit-modal {
   float: right;
   border-radius: 30px;
+}
+
+.course:hover {
+  background-color: rgba(200, 100, 50, 0.5);
+}
+
+.course-description:hover {
+  background-color: orange;
 }
