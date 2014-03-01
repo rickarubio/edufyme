@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140228001425) do
+ActiveRecord::Schema.define(:version => 20140228231006) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -32,8 +32,9 @@ ActiveRecord::Schema.define(:version => 20140228001425) do
     t.integer  "user_id"
     t.integer  "course_id"
     t.boolean  "starred"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.boolean  "completed",  :default => false
   end
 
   create_table "courses", :force => true do |t|
