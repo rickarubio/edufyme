@@ -1,5 +1,6 @@
 $(document).ready(function(){
   bindEvents();
+  $('#modaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
 })
 
 
@@ -14,6 +15,11 @@ bindEvents = function() {
     e.preventDefault();
     Overlay.hide();
   })
+
+  // $("#modaltrigger").on('click', function(e) {
+  //   e.preventDefault();
+  //   $(this).leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  // })
 }
 
 var Overlay = (function() {
