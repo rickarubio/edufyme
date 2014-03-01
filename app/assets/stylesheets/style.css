@@ -91,6 +91,9 @@ nav li {
   background: purple;
   width: 800px;
   height: 800px;
+/*  width: 80%;
+  height: 80%;*/
+  min-width: 300px;
   border: 2px solid white;
   z-index: 101;
 }
@@ -108,13 +111,28 @@ nav li {
   background-color: orange;
 }
 
-.overlay-course-main {
+
+/* OVERLAY MAIN COURSE INFO: LEFT SIDE 2/3 DISPLAY */
+.overlay-course-main, .current-courses {
   display: inline-block;
   width: 66%;
   height: 100%;
   background: teal;
 }
-.overlay-course-sidebar {
+
+.overlay-course-main img {
+  width: 100%;
+}
+
+.overlay-course-description {
+  width: 100%;
+  height: 40%;
+  background: gray;
+}
+
+
+/* OVERLAY SIDEBAR: RIGHT SIDE 1/3 DISPLAY */
+.overlay-course-sidebar, .starred-courses {
   float: right;
   display: inline-block;
   width: 33%;
@@ -122,12 +140,47 @@ nav li {
   background: aqua;
 }
 
+.overlay-add-course {
+  width: 100%;
+}
+
+.overlay-ratings {
+  /*margin: 0 5px;*/
+  /*width: 96%;*/
+  width: 100%;
+  display: inline-block;
+  height: 10%;
+  background: blue;
+}
+
+.overlay-prerequisites {
+  display: inline-block;
+  width: 100%;
+  height: 30%;
+  background: gray;
+}
+
+.overlay-teacher {
+  display: inline-block;
+  background: white;
+  width: 100%;
+  height: 40%;
+}
+
 .overlay-teacher img {
-  display: inline;
+  /*display: inline;*/
   width: 30%;
 }
 
 .overlay-teacher-bio {
-  float: right;
+  display: inline;
   width: 60%;
+}
+
+
+/*DASHBOARD - logig mixed into 1/3 2/3 layout for overlay*/
+.completed-courses {
+  background: blue;
+  width: 100%;
+  height: 100%;
 }
