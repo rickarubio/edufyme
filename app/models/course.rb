@@ -16,6 +16,11 @@ class Course < ActiveRecord::Base
     Course.all.select { |course| course.title.downcase.include?(search_terms.downcase) || course.description.downcase.include?(search_terms.downcase) }
   end
 
+  def short_title
+    max_title_length = 37
+    self.title.slice(0, max_title_length)
+  end
+
   def self.filter(filter_option)
     Course.all.select { |course| course.category.name == filter_option || course.school.name == filter_option }
   end
