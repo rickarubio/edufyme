@@ -4,7 +4,7 @@ $(document).ready(function(){
 })
 
 
-bindEvents = function() {
+var bindEvents = function() {
   $('.courses-container').on('click', '.course', function(e) {
     e.preventDefault();
     Overlay.display();

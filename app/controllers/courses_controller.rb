@@ -2,6 +2,10 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.featured
+    if request.xhr?
+      @schools = @courses.map { |course| course.school.name }
+      render :json => [@courses, @schools]
+    end
   end
 
   def show

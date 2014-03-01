@@ -111,6 +111,13 @@ nav li {
   background-color: orange;
 }
 
+#load-ajax {
+  display: none;
+  text-align: center;
+}
+
+.overlay-course-main {
+}
 
 /* OVERLAY MAIN COURSE INFO: LEFT SIDE 2/3 DISPLAY */
 .overlay-course-main, .current-courses {
@@ -177,6 +184,9 @@ nav li {
   width: 60%;
 }
 
+.hidden {
+  display: none;
+}
 
 /*DASHBOARD - logig mixed into 1/3 2/3 layout for overlay*/
 .completed-courses {
