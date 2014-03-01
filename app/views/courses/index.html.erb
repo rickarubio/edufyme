@@ -6,7 +6,7 @@
 
   <div class="courses-container">
     <% @courses.map do |course| %>
-    <div class="course">
+    <div class="course" data-course-id=<%= course.id %>>
       <div class="course-image">
         <img src=<%=course.course_img_url%>>
         <div class="course-description">
@@ -24,7 +24,22 @@
 
   <div class="overlay">
   </div>
-  <div class ="modal">
-    <button class="exit-modal">X</button>
+  <div class="modal">
+    <div class="overlay-course-main">
+      <button class="exit-modal">X</button>
+      <h4 class="overlay-course-title"></h4>
+      <img src="">
+      <p><a href=""></a></p>
+      <p class="overlay-course-description"></p>
+    </div>
+    <div class="overlay-course-sidebar">
+      <button class="overlay-add-course">Add Course</button>
+      <p class="overlay-ratings"></p>
+      <p class="overlay-prerequisites"></p>
+      <div class="overlay-teacher">
+        <img src="">
+        <p class="overlay-teacher-bio"></p>
+      </div>
+    </div>
   </div>
 </div>
