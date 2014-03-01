@@ -112,3 +112,27 @@ nav li {
   display: none;
   text-align: center;
 }
+
+.overlay-course-main {
+  display: inline-block;
+  width: 66%;
+  height: 100%;
+  background: teal;
+}
+.overlay-course-sidebar {
+  float: right;
+  display: inline-block;
+  width: 33%;
+  height: 100%;
+  background: aqua;
+}
+
+.overlay-teacher img {
+  display: inline;
+  width: 30%;
+}
+
+.overlay-teacher-bio {
+  float: right;
+  width: 60%;
+}
