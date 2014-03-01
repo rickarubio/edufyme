@@ -136,3 +136,7 @@ nav li {
   float: right;
   width: 60%;
 }
+
+.hidden {
+  display: none;
+}
