@@ -11,7 +11,7 @@ bindEvents = function() {
     Overlay.requestCourseInfo(this);
   }),
 
-  $('.exit-modal').on('click', function(e){
+  $('.overlay').on('click', function(e){
     e.preventDefault();
     Overlay.hide();
   })
@@ -24,6 +24,7 @@ bindEvents = function() {
 
 var Overlay = (function() {
   //private _methods and _vars
+  // options =  $.extend(defaults, options);
   var _populateCourseInfo = function(course) {
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
@@ -36,14 +37,19 @@ var Overlay = (function() {
     $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description);
   }
   return {
+    // var o = options;
     display: function() {
       $('.overlay').css('display', 'block');
+      // $('.overlay').fadeTo(3000, 0.0);
       $('.modal').css('display', 'block');
+      // $('.modal').fadeTo(3000, 0.0);
     },
 
     hide: function(){
-     $('.overlay').css('display', 'none');
-     $('.modal').css('display', 'none');
+     $('.overlay').fadeOut(300);
+     $('.modal').fadeOut(300);
+     // $('.overlay').css('display', 'none');
+     // $('.modal').css('display', 'none');
     },
 
     requestCourseInfo: function(course) {
