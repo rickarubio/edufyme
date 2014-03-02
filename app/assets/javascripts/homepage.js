@@ -25,7 +25,6 @@ var bindEvents = function() {
 
 var Overlay = (function() {
   //private _methods and _vars
-  // options =  $.extend(defaults, options);
   var _populateCourseInfo = function(course) {
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
@@ -35,22 +34,17 @@ var Overlay = (function() {
     $('.overlay-ratings p').text("Ratings");
     $('.overlay-prerequisites p').text("Prerequisites");
     $('.overlay-teacher img').attr('src', 'http://www.biography.com/imported/images/Biography/Images/Profiles/T/Mark-Twain-9512564-1-402.jpg');
-    $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description);
+    $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description.slice(1, 450) + '...');
   }
   return {
-    // var o = options;
     display: function() {
-      $('.overlay').css('display', 'block');
-      // $('.overlay').fadeTo(3000, 0.0);
-      $('.modal').css('display', 'block');
-      // $('.modal').fadeTo(3000, 0.0);
+      $('.overlay').fadeTo(300, 0.5);
+      $('.modal').fadeTo(300, 1.0);
     },
 
     hide: function(){
      $('.overlay').fadeOut(300);
      $('.modal').fadeOut(300);
-     // $('.overlay').css('display', 'none');
-     // $('.modal').css('display', 'none');
     },
 
     requestCourseInfo: function(course) {
@@ -63,6 +57,7 @@ var Overlay = (function() {
         alert('failed');
       })
     }
+
   }
 
 }());
