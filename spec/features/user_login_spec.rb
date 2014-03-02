@@ -5,7 +5,7 @@ describe "User Login" do
     context "user should be able to see a login link" do
       it "has a link to the user login page" do
         visit root_path
-        expect(page).to have_content "Login"
+        expect(page).to have_content "Log In"
         expect(page).to have_selector "a"
       end
     end
