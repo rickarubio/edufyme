@@ -45,23 +45,38 @@
       </div>
     </div>
   </div>
-
 </div>
 
-<center><a href="#loginmodal" class="flatbtn" id="modaltrigger">Modal Login</a></center>
+<!--  link_to "Login", new_user_session_path, class: "login-link" --> 
 
-  <div id="loginmodal" style="display:none;">
-    <h1>User Login</h1>
-    <form id="loginform" name="loginform" method="post" action="index.html">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" class="txtfield" tabindex="1">
+<!-- <div id="loginmodal" style="display:none;">
+  <h1>User Login</h1>
+  <form id="loginform" name="loginform" method="post" action="/users/sign_in">
+    <label for="email">Username:</label>
+    <input type="text" name="email" id="email" class="txtfield" tabindex="1">
 
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" class="txtfield" tabindex="2">
+    <label for="password">Password:</label>
+    <input type="password" name="password" id="password" class="txtfield" tabindex="2">
 
-      <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
-    </form>
-  </div>
+    <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"/>
+
+    <div class="center"><input type="submit" name="loginbtn" id="loginbtn" class="flatbtn-blu hidemodal" value="Log In" tabindex="3"></div>
+  </form>
+</div> -->
+
+<div id="loginmodal" style="display:none;">
+  <h1>User Login</h1>
+<%= form_for(:user, :url => session_path(:user), html: {id: "loginform"}) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "txtfield" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "txtfield" %>
+  <%= f.label :remember_me %>
+  <%= f.check_box :remember_me %><br /><br />
+  <%= f.submit 'Sign in' %><br /><br />
+  <%= link_to "Forgot your password?", new_password_path(:user) %>
+<% end %>
+</div>
 
 <div id="load-ajax"><img src="images/ajax-loader.gif"></div>
 

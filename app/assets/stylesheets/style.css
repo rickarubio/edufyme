@@ -224,7 +224,7 @@ nav li {
 
 #loginform { /* no default styles */ }
 
-#loginform label { display: block; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
+#loginform label { display: inline; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
 
 
 .txtfield {
