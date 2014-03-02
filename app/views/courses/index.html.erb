@@ -7,6 +7,7 @@
   <div class="courses-container">
     <% @courses.map do |course| %>
     <div class="course" data-course-id=<%= course.id %>>
+      <button class="star">Star</button>
       <div class="course-image">
         <img src=<%=course.course_img_url%> alt="Course Image">
         <div class="course-description">

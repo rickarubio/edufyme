@@ -4,7 +4,7 @@ $(function() {
 
 var infiniteScroll = (function() {
 
-	function scrollEvent() {
+	function _scrollEvent() {
 		$(window).on('scroll', function() {
 			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
 				$('#load-ajax').show();
@@ -40,7 +40,7 @@ var infiniteScroll = (function() {
 	}
 
 	return {
-		scrollEvent: scrollEvent
+		scrollEvent: _scrollEvent
 	}
 
 }());
