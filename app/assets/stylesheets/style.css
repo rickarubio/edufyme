@@ -111,6 +111,17 @@ nav li {
 }
 
 .modal {
+
+/*  display: none;
+  position: fixed;
+  z-index: 11000;
+  left: 50%;
+  margin-left: 10px;
+  top: 80px;
+  border: #dadfe1 1px solid;
+  border-radius: 5px;
+  z-index: 101;
+  background-color: #FFFFFF;*/
   display: none;
   margin: 0 auto;
   top: 25%;
@@ -119,13 +130,13 @@ nav li {
   float: center;
   width: 800px;
   height: 870px;
-/*  width: 80%;
-  height: 80%;*/
   min-width: 300px;
   border: #dadfe1 1px solid;
   border-radius: 5px;
   z-index: 101;
   background-color: #FFFFFF;
+/*  width: 80%;
+  height: 80%;*/
 }
 
 .exit-modal {
