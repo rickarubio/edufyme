@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140228231006) do
+ActiveRecord::Schema.define(:version => 20140302071311) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20140228231006) do
   create_table "course_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.boolean  "starred"
+    t.boolean  "starred",    :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "completed",  :default => false
@@ -46,16 +46,17 @@ ActiveRecord::Schema.define(:version => 20140228231006) do
     t.string   "course_img_url"
     t.date     "start_date"
     t.date     "end_date"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+    t.text     "short_description"
   end
 
   create_table "schools", :force => true do |t|
-    t.string   "name"
+    t.string   "name",           :default => "Not Provided"
     t.string   "school_url"
     t.string   "school_img_url"
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+    t.datetime "created_at",                                 :null => false
+    t.datetime "updated_at",                                 :null => false
   end
 
   create_table "teachers", :force => true do |t|

@@ -5,6 +5,8 @@ gem 'jquery-rails'
 gem 'pg'
 gem 'devise'
 gem 'bcrypt'
+gem 'httparty'
+gem 'pry'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
