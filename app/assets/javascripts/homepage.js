@@ -40,8 +40,8 @@ var Overlay = (function() {
     display: function() {
       $('.overlay').fadeTo(300, 0.5);
       $('.modal').fadeTo(300, 1.0);
-      // var modal_width = $(modal_id).outerWidth();
-      // var mwidth = -(modal_width/2);
+      // var modal_width = $('.modal').outerWidth();
+      // var mwidth = (modal_width/4);
       // $('.modal').css('margin-left', mwidth + "px");
     },
 

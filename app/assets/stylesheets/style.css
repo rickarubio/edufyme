@@ -111,18 +111,17 @@ nav li {
 }
 
 .modal {
-
-/*  display: none;
+  display: none;
   position: fixed;
   z-index: 11000;
-  left: 50%;
-  margin-left: 10px;
+  right: 25%;
+  left: 25%;
+  margin: 20px 0;
   top: 80px;
   border: #dadfe1 1px solid;
   border-radius: 5px;
-  z-index: 101;
-  background-color: #FFFFFF;*/
-  display: none;
+  background-color: #FFFFFF;
+/*  display: none;
   margin: 0 auto;
   top: 25%;
   left: 25%;
@@ -134,7 +133,7 @@ nav li {
   border: #dadfe1 1px solid;
   border-radius: 5px;
   z-index: 101;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF;*/
 /*  width: 80%;
   height: 80%;*/
 }
