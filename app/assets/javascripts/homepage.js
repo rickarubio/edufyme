@@ -34,7 +34,7 @@ var Overlay = (function() {
     $('.overlay-ratings p').text("Ratings");
     $('.overlay-prerequisites p').text("Prerequisites");
     $('.overlay-teacher img').attr('src', 'http://www.biography.com/imported/images/Biography/Images/Profiles/T/Mark-Twain-9512564-1-402.jpg');
-    $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description);
+    $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description.slice(1, 450) + '...');
   }
   return {
     // var o = options;
