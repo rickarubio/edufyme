@@ -1,3 +1,9 @@
+/* scrollbar infinite scroll bugfix */
+html {
+  overflow-y: scroll;
+  height: 101%
+}
+
 * { margin: 0; padding: 0; }
 
 .nav-bar {
