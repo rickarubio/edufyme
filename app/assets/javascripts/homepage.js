@@ -40,12 +40,16 @@ var Overlay = (function() {
     display: function() {
       $('.overlay').fadeTo(300, 0.5);
       $('.modal').fadeTo(300, 1.0);
+      // var modal_width = $(modal_id).outerWidth();
+      // var mwidth = -(modal_width/2);
+      // $('.modal').css('margin-left', mwidth + "px");
     },
 
     hide: function(){
      $('.overlay').fadeOut(300);
      $('.modal').fadeOut(300);
     },
+
 
     requestCourseInfo: function(course) {
       var course_id = $(course).attr('data-course-id');
