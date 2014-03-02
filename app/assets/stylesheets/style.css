@@ -210,7 +210,7 @@ nav li {
 }
 
 
-#loginmodal {
+#loginmodal, #signupmodal {
   width: 300px;
   padding: 15px 20px;
   background: #f3f6fa;
@@ -222,9 +222,9 @@ nav li {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
 }
 
-#loginform { /* no default styles */ }
+#loginform, #signupform { /* no default styles */ }
 
-#loginform label { display: inline; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
+#loginform label, #signupform label { display: inline; font-size: 1.1em; font-weight: bold; color: #7c8291; margin-bottom: 3px; }
 
 
 .txtfield {

@@ -78,6 +78,21 @@
 <% end %>
 </div>
 
+<div id="signupmodal" style="display:none;">
+  <h1>Sign Up</h1>
+<%= form_for(:user, :url => registration_path(:user), html: {id: "signupform"}) do |f| %>
+  <%= f.label :email %>
+  <%= f.text_field :email, class: "txtfield" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, class: "txtfield" %>
+  <%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation, class: "txtfield" %>
+  <%= f.label :remember_me %>
+  <%= f.check_box :remember_me %><br /><br />
+  <%= f.submit 'Sign Up' %><br /><br />
+<% end %>
+</div>
+
 <div id="load-ajax"><img src="images/ajax-loader.gif"></div>
 
 <div class='hidden'>

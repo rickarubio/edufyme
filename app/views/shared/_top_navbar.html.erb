@@ -6,8 +6,8 @@
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "Dashboard", user_dashboard_path(current_user) %></li>
       <% else %>
-        <li><a href="#loginmodal" class="flatbtn" id="modaltrigger">Login</a></li>
-        <li><%= link_to "Signup", new_user_registration_path %></li>
+        <li><a href="#loginmodal" class="flatbtn" id="loginmodaltrigger">Log In</a></li>
+        <li><a href="#signupmodal" class="flatbtn" id="signupmodaltrigger">Sign Up</a></li>
       <% end %>
       <li>School</li>
       <li>Category</li>
