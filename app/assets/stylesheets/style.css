@@ -47,7 +47,8 @@ nav li {
   src: url('/fonts/ProximaNova-Light.otf');
 }
 
-.courses-container{
+.courses-container {
+  /*display: inline-block;*/
   margin: 0 auto;
   height: 90%;
   width: 90%;
@@ -59,16 +60,22 @@ nav li {
 .course {
   padding: 0;
   display: inline-block;
+  position: relative;
   margin: 15px;
   /*width: 30%;*/
   width: 300px;
   height: 250px;
   background-color: #fff;
   border: #dadfe1 1px solid;
-  -moz-border-radius: 3px;
-  -webkit-border-radius: 3px;
-  -khtml-border-radius: 3px;
-  border-radius: 3px;
+  border-radius: 5px;
+}
+
+.star {
+  display: none;
+  margin-left: 238px;
+  position: absolute;
+  z-index: 100;
+  border-radius: 5px;
 }
 
 .course img {
@@ -76,12 +83,13 @@ nav li {
   max-width: 100%;
   width: 100%;
   height: 100%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
   border-bottom: #dadfe1 1px solid;
 }
 
 .course-image {
   position: relative;
-  background: green;
   text-align: center;
   width: 100%;
   height: 70%;
