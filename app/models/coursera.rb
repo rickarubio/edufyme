@@ -9,8 +9,6 @@ class Coursera
         course_url: "https://www.coursera.org/course/#{course['short_name']}",
         course_img_url: course["photo"],
         start_date: nil,
-        end_date: nil,
-        short_description: course["short_description"],
         school_id: Coursera.populate_school(course)
       }
     end
@@ -37,4 +35,3 @@ end
 
 # course is currently missing:
 ## start date
-## end_date

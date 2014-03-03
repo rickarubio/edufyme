@@ -76,7 +76,7 @@ def seed_course_users
     CourseUser.create(
       user_id: idx ,
       course_id: Course.all.sample.id,
-      starred: false)
+      favorited: false)
   end
 end
 
@@ -85,7 +85,7 @@ def seed_course_teachers
     CourseTeacher.create(
       teacher_id: rand(40),
       course_id: idx,
-      starred: false)
+      favorited: false)
   end
 end
 

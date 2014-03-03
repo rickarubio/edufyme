@@ -1,11 +1,8 @@
 class Course < ActiveRecord::Base
-  attr_accessible :school_id, :category_id, :title, :description, :course_url,
-    :course_img_url, :start_date, :end_date, :short_description
+  attr_accessible :school_id, :title, :description, :course_url,
+    :course_img_url, :start_date, :teachers
   belongs_to :school
-  belongs_to :category
-  has_many :course_teachers
   has_many :course_users
-  has_many :teachers, :through => :course_teachers
   has_many :users, :through => :course_users
 
   def self.featured
@@ -19,11 +16,6 @@ class Course < ActiveRecord::Base
   def short_title
     max_title_length = 37
     self.title.slice(0, max_title_length)
-  end
-
-  def short_teacher_bio
-    max_bio_length = 450
-    self.description.slice(0, max_bio_length)
   end
 
   def self.filter(filter_option)
