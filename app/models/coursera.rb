@@ -36,6 +36,5 @@ private
 end
 
 # course is currently missing:
-## category_id
 ## start date
 ## end_date
