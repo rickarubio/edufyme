@@ -52,11 +52,11 @@ ActiveRecord::Schema.define(:version => 20140302071311) do
   end
 
   create_table "schools", :force => true do |t|
-    t.string   "name",           :default => "Not Provided"
+    t.string   "name"
     t.string   "school_url"
     t.string   "school_img_url"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
   create_table "teachers", :force => true do |t|

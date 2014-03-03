@@ -200,6 +200,7 @@ DEPENDENCIES
   faker
   httparty
   jquery-rails
+  nokogiri
   pg
   pry
   rails (= 3.2.16)
