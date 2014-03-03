@@ -16,13 +16,13 @@ class UserCoursesController < ApplicationController
   end
 
   def update
-    if params[:update_action]["starred"] == "true"
-      params[:update_action]["starred"] = true
+    if params[:update_action]["favorited"] == "true"
+      params[:update_action]["favorited"] = true
     else
-      params[:update_action]["starred"] = false
+      params[:update_action]["favorited"] = false
     end
-    starred = {starred: params["update_action"]["starred"]}
-    CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(starred)
+    favorited = {favorited: params["update_action"]["favorited"]}
+    CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(favorited)
     render json: params
   end
 end
