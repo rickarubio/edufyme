@@ -8,11 +8,7 @@ var infiniteScroll = (function() {
 		$(window).on('scroll', function() {
 			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
 				$('#load-ajax').show();
-				$.ajax({
-					type: 'GET',
-					url: '/'
-				})
-				.done(function(data) {
+				$.get('/', function(data) {
 					var courses = data.shift()
 					var schools = data.pop()
 					for (var i = 0; i < courses.length; i++) {
@@ -20,9 +16,6 @@ var infiniteScroll = (function() {
 						$('.courses-container').append(formattedCourse.attr('class', 'course'))
 					}
 					$('#load-ajax').hide()
-				})
-				.fail(function(xhr) {
-					console.log(xhr)
 				})
 			}
 		})
