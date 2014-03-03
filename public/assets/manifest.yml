@@ -9,6 +9,8 @@ application.js: application-5d550f73c158de5dad61d74087de197a.js
 application/index.js: application-5d550f73c158de5dad61d74087de197a.js
 application.css: application-5776328fceb6157c61e504ee7513192e.css
 application/index.css: application-5776328fceb6157c61e504ee7513192e.css
+normalize.css: normalize-a6ec8acf5e7bfa7be52f5dc675297659.css
+normalize/index.css: normalize-a6ec8acf5e7bfa7be52f5dc675297659.css
 jquery.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 jquery/index.min.map: jquery.min-388372ef65cc311f6a3df4a6ceac8d22.map
 vendor/custom.modernizr.js: vendor/custom.modernizr-a7d5258f68c42509cd151b5d3ebb9aa9.js
