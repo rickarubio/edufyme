@@ -205,7 +205,7 @@ DEPENDENCIES
   pry
   rails (= 3.2.16)
   rspec-rails
-  sass-rails (~> 3.2.3)
+  sass-rails
   selenium-webdriver
   shoulda-matchers
   uglifier (>= 1.0.3)

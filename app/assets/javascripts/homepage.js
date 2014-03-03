@@ -22,6 +22,7 @@ var bindEvents = function() {
 
   $('.course').hover(function(e){
     e.preventDefault();
+    // console.log('hereee')
     //make star appear where course.id = course.data
     $('.star').fadeTo(30, 1.0);
   }, function() {
