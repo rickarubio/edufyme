@@ -253,6 +253,11 @@ nav li {
   display: none;
 }
 
+nav h1 {
+  text-align: center;
+  margin: auto;
+}
+
 /*DASHBOARD - logig mixed into 1/3 2/3 layout for overlay*/
 .completed-courses {
   width: 100%;
