@@ -1,12 +1,17 @@
 $(function() {
+	$.ajaxSetup({ cache: false });
 	infiniteScroll.scrollEvent();
 });
 
 var infiniteScroll = (function() {
-
+	var is_loading = false
 	function _scrollEvent() {
 		$(window).on('scroll', function() {
 			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+				if (is_loading) {
+					return;
+				}
+				is_loading = true;
 				$('#load-ajax').show();
 				$.get('/', function(data) {
 					var courses = data.shift()
@@ -16,7 +21,7 @@ var infiniteScroll = (function() {
 						$('.courses-container').append(formattedCourse.attr('class', 'course'))
 					}
 					$('#load-ajax').hide()
-				})
+				}).always(function() { is_loading = false; });
 			}
 		})
 	}

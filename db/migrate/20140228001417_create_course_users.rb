@@ -3,7 +3,7 @@ class CreateCourseUsers < ActiveRecord::Migration
     create_table :course_users do |t|
       t.belongs_to :user
       t.belongs_to :course
-      t.boolean :starred, default: false
+      t.boolean :favorited, default: false
 
       t.timestamps
     end

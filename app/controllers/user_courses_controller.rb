@@ -21,9 +21,7 @@ class UserCoursesController < ApplicationController
     else
       params[:update_action]["favorited"] = false
     end
-    # binding.pry
     favorited = {favorited: params["update_action"]["favorited"]}
-    # p params
     CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(favorited)
     render json: params
   end

@@ -113,3 +113,31 @@ var Overlay = (function() {
   }
 
 }());
+
+var disableDeviseLoginLogout = (function() {
+  // _private vars and _functions
+  return {
+    
+  }
+})();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
