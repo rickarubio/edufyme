@@ -24,5 +24,4 @@ class CoursesController < ApplicationController
     @courses = Course.filter(params[:filter_options])
     render :search_results
   end
-
 end
