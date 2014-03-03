@@ -9,7 +9,10 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   def self.featured
-    featured_courses = Course.all.sample(6)
+    featured_courses = Course.all
+    instance_courses = []
+    9.times { instance_courses << featured_courses.delete_at(rand(featured_courses.length)) }
+    instance_courses
   end
 
   def self.search_for(search_terms)
