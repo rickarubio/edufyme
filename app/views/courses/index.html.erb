@@ -1,3 +1,7 @@
+<% if user_signed_in? %>
+  <div id="current-user-id" display="hidden" data-user-id=<%= current_user.id %>>
+  </div>
+<% end %>
 <%= render "shared/top_navbar" %>
 <div class="container">
   <div class="featured-courses-title">
@@ -33,6 +37,7 @@
     </div>
     <div class="overlay-course-sidebar">
       <!-- <button class="exit-modal">X</button> -->
+      <button class="overlay-remove-course">Remove Course</button>
       <button class="overlay-add-course">Add Course</button>
       <div class="overlay-ratings">
         <p></p>

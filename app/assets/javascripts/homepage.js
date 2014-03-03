@@ -2,6 +2,7 @@ $(function() {
   bindEvents();
 })
 
+
 var bindEvents = function() {
 
   $('#loginmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
@@ -21,7 +22,6 @@ var bindEvents = function() {
 
   $('.course').hover(function(e){
     e.preventDefault();
-    console.log('hereee')
     //make star appear where course.id = course.data
     $('.star').fadeTo(30, 1.0);
   }, function() {
@@ -37,6 +37,7 @@ var bindEvents = function() {
 var Overlay = (function() {
 
   var _populateCourseInfo = function(course) {
+    $('.overlay-add-course').attr('data-course-id', course.id);
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
     $('.modal a').attr('href', course.course_url);
