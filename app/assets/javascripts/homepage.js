@@ -2,6 +2,7 @@ $(function() {
   bindEvents();
 })
 
+
 var bindEvents = function() {
 
   $('#loginmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
@@ -37,6 +38,24 @@ var bindEvents = function() {
 var Overlay = (function() {
 
   var _populateCourseInfo = function(course) {
+    $('.overlay-add-course').attr('data-course-id', course.id);
+    var addedCourseIDs = $('#current-user-added-classes').attr('data-added-course-ids')
+    if ($('#current-user-added-classes').attr('data-added-course-ids') === undefined){
+      var addedCourseIDs = " "
+    } else {
+      var addedCourseIDs = $('#current-user-added-classes').attr('data-added-course-ids')
+    };
+    var courseArray = addedCourseIDs.replace("[", "")
+    courseArray = courseArray.replace("]", "")
+    courseArray = courseArray.split(", ")
+    if ($.inArray((course.id).toString(), courseArray) === -1 ){
+      $('.overlay-remove-course').css('display', 'none');
+    } else {
+      $('.overlay-add-course').css('display', 'none');
+    };
+    $('.overlay-remove-course').attr('data-course-id', course.id);
+    $('.star-course').attr('data-course-id', course.id);
+    $('.unstar-course').attr('data-course-id', course.id);
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
     $('.modal a').attr('href', course.course_url);

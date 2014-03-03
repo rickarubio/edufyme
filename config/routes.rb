@@ -4,6 +4,10 @@ Edufyme::Application.routes.draw do
   devise_for :users
   match 'users/:id' => 'users#dashboard', :as => :user_dashboard
   resources :courses, only: [:index, :show]
+
+  resources :users, only: [] do
+    resources :courses, only: [:create, :destroy, :update], controller: "user_courses"
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

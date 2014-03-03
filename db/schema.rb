@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20140302071311) do
   create_table "course_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.boolean  "starred",    :default => false
+    t.boolean  "starred"
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "completed",  :default => false
