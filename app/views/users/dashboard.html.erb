@@ -1,12 +1,5 @@
 <%= render "shared/top_navbar" %>
 <div class="container">
-
-	<div class="dashboard-search">
-		<p>Hello <%= current_user.email %></p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :name => nil %>
-	</div>
-
 	<div class="dashboard-courses-container">
 		<div class="dashboard-courses">
 			<h1>Current Courses</h1>
