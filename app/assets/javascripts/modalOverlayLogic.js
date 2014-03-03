@@ -18,8 +18,8 @@ var modalOverlayLogic = (function() {
         method: 'DELETE',
         data: {"course_id": courseID}
       }).done(function(result){
-        $('.overlay-add-course').css('display', 'inherit');
-        $('.overlay-remove-course').css('display', 'none')
+        $('.overlay-add-course').css('display', '');
+        $('.overlay-remove-course').css('display', '') /* none*/
       }).fail(function(){
         console.log("error has occurred");
       })
@@ -35,8 +35,8 @@ var modalOverlayLogic = (function() {
       }).done(function(result){
         var a = $('#current-user-added-classes').attr('data-added-course-ids')
         $('#current-user-added-classes').replaceWith("<div id='current-user-added-classes' display='hidden' data-added-course-ids='" + [a.slice(0, 1), courseID + ', ', a.slice(1)].join('') + "' ></div>");
-        $('.overlay-add-course').css('display', 'none');
-        $('.overlay-remove-course').css('display', 'inherit')
+        $('.overlay-add-course').css('display', ''); /* none */
+        $('.overlay-remove-course').css('display', '')
       }).fail(function(){
         alert('You must be logged in to add classes');
       })
