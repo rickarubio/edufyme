@@ -6,7 +6,7 @@ Edufyme::Application.routes.draw do
   resources :courses, only: [:index, :show]
 
   resources :users, only: [] do
-    resources :courses, only: [:create, :destroy], controller: "user_courses"
+    resources :courses, only: [:create, :destroy, :update], controller: "user_courses"
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.
