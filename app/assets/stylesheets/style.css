@@ -258,6 +258,17 @@ nav h1 {
   margin: auto;
 }
 
+.user-current-courses-title h3 {
+  text-align: center;
+}
+
+.user-completed-courses-title h3 {
+  text-align: center;
+}
+
+.user-courses-title h3 {
+  text-align: center;
+}
 /*DASHBOARD - logig mixed into 1/3 2/3 layout for overlay*/
 .completed-courses {
   width: 100%;

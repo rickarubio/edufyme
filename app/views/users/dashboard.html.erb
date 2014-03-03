@@ -1,4 +1,46 @@
 <%= render "shared/top_navbar" %>
+<div class="container">
+	<div class="user-current-courses-title">
+		<h3>Your Current Courses</h3>
+	</div>
+	<div class="courses-container">
+		<% @current_courses.each do |course| %>
+			<div class="course" data-course-id=<%= course.id %>>
+				<button class="star">Star</button>
+				<div class="course-image">
+					<img src=<%= course.course_img_url %> alt="Course Image">
+				</div>
+				<div class="course-description">
+					<%= link_to course.short_title, course.course_url %>
+					<p>XYZ University</p>
+					<div class="course-date">
+						<span class="date-display">Start Date: <%= course.start_date %></span>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
 
-
-
+<div class="container">
+	<div class="user-completed-courses-title">
+		<h3>Your Completed Courses</h3>
+	</div>
+	<div class="courses-container">
+		<% @completed_courses.each do |course| %>
+			<div class="course" data-course-id=<%= course.id %>>
+				<button class="star">Star</button>
+				<div class="course-image">
+					<img src=<%= course.course_img_url %> alt="Course Image">
+				</div>
+				<div class="course-description">
+					<%= link_to course.short_title, course.course_url %>
+					<p>XYZ University</p>
+					<div class="course-date">
+						<span class="date-display">Start Date: <%= course.start_date %></span>
+					</div>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
