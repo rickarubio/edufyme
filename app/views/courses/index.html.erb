@@ -12,7 +12,7 @@
         <img src=<%=course.course_img_url%> alt="Course Image">
         <div class="course-description">
           <%= link_to "#{course.short_title}", course.course_url %>
-          <p>School Name Here <!-- course.school.name --></p>
+          <p><%= course.school.name %></p>
           <div class="course-date">
             <span class="date-display">Start Date: <%=course.start_date%></span>
           </div>
