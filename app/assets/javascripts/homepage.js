@@ -23,10 +23,10 @@ var bindEvents = function() {
   $('.course').hover(function(e){
     e.preventDefault();
     // console.log('hereee')
-    //make star appear where course.id = course.data
-    $('.star').fadeTo(30, 1.0);
+    //make favorite appear where course.id = course.data
+    $('.favorite').fadeTo(30, 1.0);
   }, function() {
-    $('.star').fadeOut(30);
+    $('.favorite').fadeOut(30);
   })
 
   // $("#modaltrigger").on('click', function(e) {
@@ -39,23 +39,41 @@ var Overlay = (function() {
 
   var _populateCourseInfo = function(course) {
     $('.overlay-add-course').attr('data-course-id', course.id);
+    $('.overlay-remove-course').attr('data-course-id', course.id);
     var addedCourseIDs = $('#current-user-added-classes').attr('data-added-course-ids')
     if ($('#current-user-added-classes').attr('data-added-course-ids') === undefined){
       var addedCourseIDs = " "
     } else {
       var addedCourseIDs = $('#current-user-added-classes').attr('data-added-course-ids')
     };
-    var courseArray = addedCourseIDs.replace("[", "")
-    courseArray = courseArray.replace("]", "")
-    courseArray = courseArray.split(", ")
+    var courseArray = addedCourseIDs.replace("[", "");
+    courseArray = courseArray.replace("]", "");
+    courseArray = courseArray.split(", ");
     if ($.inArray((course.id).toString(), courseArray) === -1 ){
       $('.overlay-remove-course').css('display', 'none');
     } else {
       $('.overlay-add-course').css('display', 'none');
+      $('.favorite-course').removeAttr('disabled');
     };
-    $('.overlay-remove-course').attr('data-course-id', course.id);
-    $('.star-course').attr('data-course-id', course.id);
-    $('.unstar-course').attr('data-course-id', course.id);
+
+    var favoritedCourseIDs = $('#current-user-favorited-classes').attr('data-favorited-course-ids')
+    if ($('#current-user-favorited-classes').attr('data-favorited-course-ids') === undefined){
+      var favoritedCourseIDs = " "
+    } else {
+      var favoritedCourseIDs = $('#current-user-favorited-classes').attr('data-favorited-course-ids')
+    };
+    var favoritedArray = favoritedCourseIDs.replace("[", "");
+    favoritedArray = favoritedArray.replace("]", "");
+    favoritedArray = favoritedArray.split(", ");
+    if ($.inArray((course.id).toString(), favoritedArray) === -1){
+      $('.unfavorite-course').css('display', 'none');
+
+    } else {
+      $('.favorite-course').css('display', 'none');
+    };
+
+    $('.favorite-course').attr('data-course-id', course.id);
+    $('.unfavorite-course').attr('data-course-id', course.id);
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
     $('.modal a').attr('href', course.course_url);
