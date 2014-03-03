@@ -9,7 +9,6 @@ var infiniteScroll = (function() {
 			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
 				$('#load-ajax').show();
 				$.get('/', function(data) {
-					debugger
 					var courses = data.shift()
 					var schools = data.pop()
 					for (var i = 0; i < courses.length; i++) {
