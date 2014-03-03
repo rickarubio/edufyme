@@ -21,9 +21,7 @@ class UserCoursesController < ApplicationController
     else
       params[:update_action]["starred"] = false
     end
-    # binding.pry
     starred = {starred: params["update_action"]["starred"]}
-    p params
     CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(starred)
     render json: params
   end
