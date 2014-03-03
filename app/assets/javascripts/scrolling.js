@@ -1,4 +1,5 @@
 $(function() {
+	$.ajaxSetup({ cache: false });
 	infiniteScroll.scrollEvent();
 });
 
