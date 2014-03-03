@@ -8,7 +8,6 @@ class CreateCourses < ActiveRecord::Migration
       t.string :course_url
       t.string :course_img_url
       t.date :start_date
-      t.date :end_date
 
       t.timestamps
     end
