@@ -9,8 +9,7 @@ class Course < ActiveRecord::Base
   has_many :users, :through => :course_users
 
   def self.featured
-    featured_courses = Course.all
-    instance_courses = featured_courses.slice!(0,9)
+    Course.all.sample(9)
   end
 
   def self.search_for(search_terms)
