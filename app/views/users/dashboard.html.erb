@@ -1,52 +1,70 @@
 <%= render "shared/top_navbar" %>
-
-
 <div class="container">
+
+	<div class="dashboard-search">
+		<p>Hello <%= current_user.email %></p>
+		<%= text_field_tag :search, params[:search] %>
+		<%= submit_tag "Search", :name => nil %>
+	</div>
+
 	<div class="courses-container">
-
-			<div class="current-courses">
-				<div class="dashboard-search">
-					<p>Hello <%= current_user.email %></p>
-					<%= text_field_tag :search, params[:search] %>
-					<%= submit_tag "Search", :name => nil %>
-				</div>
-				<h1>Current Courses</h1>
-				<% unless @current_courses.empty? %>
-					<% @current_courses.each do |course| %>
-						<p><%=course.title%></p>
+		<div class="current-courses">
+			<h1>Current Courses</h1>
+			<% unless @current_courses.empty? %>
+				<% @current_courses.each do |course| %>
+					<div class="current-courses-image">
+						<img src=<%=course.course_img_url%>>
+					</div>
+					<div class="current-courses-description">
+						<%= link_to "#{course.short_title}", course.course_url %>
 						<p><%=course.school.name%></p>
-						<p><%=course.start_date%></p>
-						<p><%=course.end_date%></p>
-						<img class="current-courses-image" src=<%=course.course_img_url%>>
-						<% end %>
-					<% else %>
-						<p><%= "You aren't registered for any classes yet!"%></p>
+					</div>
+					<div class="current-courses-date">
+            <span class="date-display">Start Date: <%=course.start_date%></span>
+					</div>
 				<% end %>
-			</div>
+			<% else %>
+				<p><%= "You aren't registered for any classes yet!"%></p>
+			<% end %>
+		</div>
 
-			<div class="starred-courses">
-				<h1>Starred Courses</h1>
-					<ul class="starred-courses-list">
-						<% unless @starred_courses.empty? %>
-							<% @starred_courses.each do |starred| %>
-								<p><%= Course.find(starred.course_id).title%></p>
-							<% end %>
-						<% else %>
-							<p><%= "You haven't starred any courses yet!" %></p>
-					</ul>
+		<div class="starred-courses">
+			<h1>Starred Courses</h1>
+			<% unless @starred_courses.empty? %>
+				<% @starred_courses.each do |starred| %>
+					<div class="starred-courses-image">
+						<img src=<%=Course.find(starred.course_id).course_img_url%>>
+					</div>
+					<div class="starred-courses-description">
+						<%= link_to "#{Course.find(starred.course_id).short_title}", Course.find(starred.course_id).course_url %>
+						<p><%=Course.find(starred.course_id).school.name%></p>
+					</div>
+					<div class="starred-courses-date">
+            <span class="date-display">Start Date: <%=Course.find(starred.course_id).start_date%></span>
+					</div>
 				<% end %>
-			</div>
+			<% else %>
+				<p><%= "You aren't starred any classes yet!"%></p>
+			<% end %>
+		</div>
 
 		<div class="completed-courses">
 			<h1>Completed Courses</h1>
-				<ul class="completed-courses-list">
-					<% unless @completed_courses.empty? %>
-						<% @completed_courses.each do |completed| %>
-							<p><%= Course.find(completed.course_id).title%></p>
-							<% end %>
-						<% else %>
-							<p><%= "You haven't completed any courses yet!" %></p>
-				</ul>
+			<% unless @starred_courses.empty? %>
+				<% @starred_courses.each do |completed| %>
+					<div class="completed-courses-image">
+						<img src=<%=Course.find(completed.course_id).course_img_url%>>
+					</div>
+					<div class="completed-courses-description">
+						<%= link_to "#{Course.find(completed.course_id).short_title}", Course.find(completed.course_id).course_url %>
+						<p><%=Course.find(completed.course_id).school.name%></p>
+					</div>
+					<div class="completed-courses-date">
+            <span class="date-display">Start Date: <%=Course.find(completed.course_id).start_date%></span>
+					</div>
+				<% end %>
+			<% else %>
+				<p><%= "You haven't completed any classes yet!"%></p>
 			<% end %>
 		</div>
 
