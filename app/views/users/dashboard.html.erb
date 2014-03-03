@@ -7,19 +7,19 @@
 		<%= submit_tag "Search", :name => nil %>
 	</div>
 
-	<div class="courses-container">
-		<div class="current-courses">
+	<div class="dashboard-courses-container">
+		<div class="dashboard-courses">
 			<h1>Current Courses</h1>
 			<% unless @current_courses.empty? %>
 				<% @current_courses.each do |course| %>
-					<div class="current-courses-image">
+					<div class="dashboard-courses-image">
 						<img src=<%=course.course_img_url%>>
 					</div>
-					<div class="current-courses-description">
+					<div class="dashboard-courses-description">
 						<%= link_to "#{course.short_title}", course.course_url %>
 						<p><%=course.school.name%></p>
 					</div>
-					<div class="current-courses-date">
+					<div class="dashboard-courses-date">
             <span class="date-display">Start Date: <%=course.start_date%></span>
 					</div>
 				<% end %>
@@ -28,18 +28,18 @@
 			<% end %>
 		</div>
 
-		<div class="starred-courses">
+		<div class="dashboard-courses">
 			<h1>Starred Courses</h1>
 			<% unless @starred_courses.empty? %>
 				<% @starred_courses.each do |starred| %>
-					<div class="starred-courses-image">
+					<div class="dashboard-courses-image">
 						<img src=<%=Course.find(starred.course_id).course_img_url%>>
 					</div>
-					<div class="starred-courses-description">
+					<div class="dashboard-courses-description">
 						<%= link_to "#{Course.find(starred.course_id).short_title}", Course.find(starred.course_id).course_url %>
 						<p><%=Course.find(starred.course_id).school.name%></p>
 					</div>
-					<div class="starred-courses-date">
+					<div class="dashboard-courses-date">
             <span class="date-display">Start Date: <%=Course.find(starred.course_id).start_date%></span>
 					</div>
 				<% end %>
@@ -48,18 +48,18 @@
 			<% end %>
 		</div>
 
-		<div class="completed-courses">
+		<div class="dashboard-courses">
 			<h1>Completed Courses</h1>
 			<% unless @starred_courses.empty? %>
 				<% @starred_courses.each do |completed| %>
-					<div class="completed-courses-image">
+					<div class="dashboard-courses-image">
 						<img src=<%=Course.find(completed.course_id).course_img_url%>>
 					</div>
-					<div class="completed-courses-description">
+					<div class="dashboard-courses-description">
 						<%= link_to "#{Course.find(completed.course_id).short_title}", Course.find(completed.course_id).course_url %>
 						<p><%=Course.find(completed.course_id).school.name%></p>
 					</div>
-					<div class="completed-courses-date">
+					<div class="dashboard-courses-date">
             <span class="date-display">Start Date: <%=Course.find(completed.course_id).start_date%></span>
 					</div>
 				<% end %>
