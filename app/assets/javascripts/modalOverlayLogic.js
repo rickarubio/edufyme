@@ -20,6 +20,9 @@ var modalOverlayLogic = (function() {
         method: 'DELETE',
         data: {"course_id": courseID}
       }).done(function(result){
+        var a = $('#current-user-added-classes').attr('data-added-course-ids');
+        a = a.replace(courseID + ", ", "");
+        $('#current-user-added-classes').replaceWith("<div id='current-user-added-classes' display='hidden' data-added-course-ids='" + a + "' ></div>");
         $('.overlay-add-course').css('display', 'inherit');
         $('.overlay-remove-course').css('display', 'none');
         $('.unfavorite-course').css('display', 'none');
