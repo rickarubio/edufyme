@@ -3,7 +3,9 @@ class UsersController < ApplicationController
 
   def dashboard
   	@current_courses = current_user.courses
-  	@favorited_courses = CourseUser.find_favorited_by(current_user)
+  	@favorited_courses = CourseUser.find_favorited_by(current_user).map do |course_user|
+      Course.find(course_user.course_id)
+    end
   	@completed_courses = CourseUser.find_completed_by(current_user)
   end
 end
