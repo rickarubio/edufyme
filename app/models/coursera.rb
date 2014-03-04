@@ -9,7 +9,8 @@ class Coursera
         course_url: "https://www.coursera.org/course/#{course['short_name']}",
         course_img_url: course["photo"],
         start_date: Coursera.populate_start_dates(course),
-        school_id: Coursera.populate_school(course)
+        school_id: Coursera.populate_school(course),
+        teachers: course["instructor"]
       }
     end
     formatted_courses.each {|course| Course.create(course)}
@@ -29,7 +30,12 @@ private
     course_data = HTTParty.get("https://www.coursera.org/maestro/api/topic/information?topic-id=#{short_name}")
     doc = Nokogiri::HTML(course_data['about_the_course'])
     description = doc.css('p').inner_text
-    description.gsub("\n", '').split(/ {2,}/).join('')
+    if description == ""
+      description = course_data.parsed_response["about_the_course"]
+      description.gsub(/<[^>]*>/, "").gsub("\n", ' ')
+    else
+      description.gsub("\n", '').gsub(/\s{2,}/, " ")
+    end
   end
 
   def self.populate_start_dates(course)
