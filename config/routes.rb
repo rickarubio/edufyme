@@ -1,7 +1,7 @@
 Edufyme::Application.routes.draw do
 
   root to: 'courses#index'
-  devise_for :users
+  devise_for :users, :controllers => {:registrations => "registrations"}
   match 'users/:id' => 'users#dashboard', :as => :user_dashboard
   resources :courses, only: [:index, :show]
 
