@@ -53,10 +53,13 @@ var Overlay = (function() {
     if ($.inArray((course.id).toString(), courseArray) === -1 ){
       $('.overlay-remove-course').css('display', 'none');
       $('.overlay-add-course').css('display', 'inherit');
+      $('.favorite-course').attr('disabled', 'disabled');
+      $('.complete-course').attr('disabled', 'disabled');
     } else {
       $('.overlay-add-course').css('display', 'none');
       $('.overlay-remove-course').css('display', 'inherit');
       $('.favorite-course').removeAttr('disabled');
+      $('.complete-course').removeAttr('disabled');
     };
 
     var favoritedCourseIDs = $('#current-user-favorited-classes').attr('data-favorited-course-ids')
