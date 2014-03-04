@@ -8,6 +8,7 @@ gem 'bcrypt'
 gem 'httparty'
 gem 'pry'
 gem 'nokogiri'
+gem 'chronic'
 
 group :assets do
   gem 'sass-rails'  #,   '~> 3.2.3'
