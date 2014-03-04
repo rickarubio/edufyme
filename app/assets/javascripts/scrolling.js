@@ -32,7 +32,7 @@ var infiniteScroll = (function() {
 		$courseTemplate.find('img').attr('src', course.course_img_url)
 		$courseTemplate.find('a').attr('href', course.course_url)
 		$courseTemplate.find('.course-description a').append(course.title.slice(0, 36))
-		$courseTemplate.find('.course-description p').append(school)
+		$courseTemplate.find('.course-description p').append(school.slice(0, 39))
 		if (course.start_date === null) {
 			$courseTemplate.find('.course-description .date-display').text("Start Date: TBD")
 		} else {
