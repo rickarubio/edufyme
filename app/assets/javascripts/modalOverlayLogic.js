@@ -23,6 +23,9 @@ var modalOverlayLogic = (function() {
         $('.unfavorite-course').css('display', 'none');
         $('.favorite-course').css('display', 'inherit');
         $('.favorite-course').attr('disabled', 'disabled');
+        $('.uncomplete-course').css('display', 'none');
+        $('.complete-course').css('display', 'inherit');
+        $('.complete-course').attr('disabled', 'disabled');
       }).fail(function(){
         console.log("error has occurred");
       })
@@ -38,9 +41,10 @@ var modalOverlayLogic = (function() {
       }).done(function(result){
         var a = $('#current-user-added-classes').attr('data-added-course-ids')
         $('#current-user-added-classes').replaceWith("<div id='current-user-added-classes' display='hidden' data-added-course-ids='" + [a.slice(0, 1), courseID + ', ', a.slice(1)].join('') + "' ></div>");
-        $('.overlay-add-course').css('display', 'none'); /* none */
+        $('.overlay-add-course').css('display', 'none');
         $('.overlay-remove-course').css('display', 'inherit');
         $('.favorite-course').removeAttr('disabled');
+        $('.complete-course').removeAttr('disabled');
       }).fail(function(){
         alert('You must be logged in to add classes');
       })
@@ -74,7 +78,39 @@ var modalOverlayLogic = (function() {
         $('.favorite-course').css('display', 'inherit');
         $('.unfavorite-course').css('display', 'none')
       }).fail(function(){
-        alert("error has occured")
+        alert("error has occurred")
+      })
+    },
+
+    completeCourse: function() {
+      var courseID = $(this).attr('data-course-id');
+      var userID = $('#current-user-id').attr('data-user-id');
+      $.ajax({
+        url: '/users/' + userID + '/courses/' + courseID,
+        method: 'PUT',
+        data: {"course_id": courseID, "update_action": {"completed": true}}
+      }).done(function(result){
+        var a = $('#current-user-completed-classes').attr('data-completed-course-ids')
+        $('#current-user-completed-classes').replaceWith("<div id='current-user-completed-classes' display='hidden' data-completed-course-ids='" + [a.slice(0, 1), courseID + ', ', a.slice(1)].join('') + "' ></div>");
+        $('.complete-course').css('display', 'none');
+        $('.uncomplete-course').css('display', 'inherit');
+      }).fail(function(){
+        alert("error has occurred")
+      })
+    },
+
+    uncompleteCourse: function() {
+      var courseID = $(this).attr('data-course-id');
+      var userID = $('#current-user-id').attr('data-user-id');
+      $.ajax({
+        url: '/users/' + userID + '/courses/' + courseID,
+        method: 'PUT',
+        data: {"course_id": courseID, "update_action": {"completed": false}}
+      }).done(function(result){
+        $('.complete-course').css('display', 'inherit');
+        $('.uncomplete-course').css('display', 'none');
+      }).fail(function(){
+        alert("error has occurred")
       })
     }
   }
