@@ -1,4 +1,21 @@
 <%= render "shared/top_navbar" %>
+
+<% if user_signed_in? %>
+  <div id="current-user-id" display="hidden" data-user-id=<%= current_user.id %>>
+  </div>
+  <div id="current-user-added-classes" display="hidden" data-added-course-ids="<%= current_user.courses.map {|course| course.id} %>">
+  </div>
+  <% favorited_array = [] %>
+  <% course_user = CourseUser.find_all_by_user_id(current_user.id) %>
+  <% course_user.each {|cu| favorited_array << cu.course_id if cu.favorited == true} %>
+  <div id="current-user-favorited-classes" display="hidden" data-favorited-course-ids="<%= favorited_array %>">
+  </div>
+  <% completed_array = [] %>
+  <% course_user.each {|cu| completed_array << cu.course_id if cu.completed == true} %>
+  <div id="current-user-completed-classes" display="hidden" data-completed-course-ids="<%= completed_array %>">
+  </div>
+<% end %>
+
 <div class="container">
 	<div class="user-favorited-courses-title">
 		<h3>Your Favorite Courses</h3>
@@ -16,9 +33,13 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -44,9 +65,13 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -72,13 +97,50 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
 			<% end %>
 		<% end %>
+	</div>
+</div>
+
+<div class="container">
+	<!-- hidden content that is triggered by js -->
+	<div class="overlay">
+	</div>
+	<div class="modal">
+	  <div class="overlay-course-main">
+	    <a href="" target="_blank"><h4 class="overlay-course-title"></h4></a>
+	  </div>
+	  <div class="overlay-image-and-buttons">
+	    <img class="course-image" src="" alt="Course Image">
+	    <div class="overlay-course-sidebar">
+	      <button class="overlay-remove-course">Remove Course</button>
+	      <button class="overlay-add-course">Add Course</button>
+	      <button class="favorite-course" disabled="disabled">Favorite Course</button>
+	      <button class="unfavorite-course">Unfavorite Course</button>
+	      <button class="complete-course" disabled="disabled">Complete Course</button>
+	      <button class="uncomplete-course">Uncomplete Course</button>
+	      <div id="school">
+	        <img src="/images/default-school.jpg">
+	      </div>
+	      <div class="teachers">
+	        <h4>Instructor(s)</h4>
+	        <p></p>
+	      </div>
+	    </div>
+	  </div>
+	  <h4>Course Description</h4>
+	  <div class="overlay-course-description">
+	    <p></p>
+	  </div>
 	</div>
 </div>
