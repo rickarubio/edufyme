@@ -88,11 +88,11 @@ var Overlay = (function() {
     completedArray = completedArray.replace("]", "");
     completedArray = completedArray.split(", ");
     if ($.inArray((course.id).toString(), completedArray) === -1){
-      $('.uncompleted-course').css('display', 'none');
-      $('.completed-course').css('display', 'inherit');
+      $('.uncomplete-course').css('display', 'none');
+      $('.complete-course').css('display', 'inherit');
     } else {
-      $('.complted-course').css('display', 'none');
-      $('.uncompleted-course').css('display', 'inherit');
+      $('.complete-course').css('display', 'none');
+      $('.uncomplete-course').css('display', 'inherit');
     };
 
     $('.complete-course').attr('data-course-id', course.id);

@@ -208,10 +208,14 @@ nav li {
   padding: 4px;
 }
 
-.overlay-add-course, .overlay-remove-course, .favorite-course, .unfavorite-course {
+.overlay-add-course, .overlay-remove-course, .favorite-course, .unfavorite-course, .complete-course, .uncomplete-course {
   width: 100%;
   border-radius: 5px;
   margin: 4px 0;
+}
+
+:disabled {
+  background-color: #90D3EB !important;
 }
 
 .overlay-ratings {

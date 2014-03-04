@@ -23,19 +23,20 @@ class UserCoursesController < ApplicationController
     end
     favorited = {favorited: params["update_action"]["favorited"]}
 
-    # if params[:update_action]["completed"] == "true"
-    #   params[:update_action]["completed"] = true
-    # else
-    #   params[:update_action]["completed"] = false
-    # end
-    # completed = {completed: params["update_action"]["completed"]}
+    if params[:update_action]["completed"] == "true"
+      params[:update_action]["completed"] = true
+    else
+      params[:update_action]["completed"] = false
+    end
+    completed = {completed: params["update_action"]["completed"]}
 
-    # if params[:update_action] == {"favorited"=>"true"} || params[:update_action] == {"favorited"=>"false"}
-    #   action = favorited
-    # else
-    #   action = completed
-    # p params[:update_action]
-    CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(favorited)
+    if params[:update_params] == "fave"
+      action = favorited
+    else
+      action = completed
+    end
+    p params[:update_params]
+    CourseUser.find_by_user_id_and_course_id(params[:user_id].to_i, params[:course_id].to_i).update_attributes(action)
     render json: params
   end
 end
