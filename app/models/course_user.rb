@@ -1,5 +1,5 @@
 class CourseUser < ActiveRecord::Base
-  attr_accessible :user_id, :course_id, :starred, :completed
+  attr_accessible :user_id, :course_id, :favorited, :completed
   belongs_to :course
   belongs_to :user
 
