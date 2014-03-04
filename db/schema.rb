@@ -24,7 +24,6 @@ ActiveRecord::Schema.define(:version => 20140303230644) do
 
   create_table "courses", :force => true do |t|
     t.integer  "school_id"
-    t.integer  "category_id"
     t.string   "title"
     t.text     "description"
     t.string   "course_url"
@@ -32,7 +31,7 @@ ActiveRecord::Schema.define(:version => 20140303230644) do
     t.date     "start_date"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
-    t.string   "teachers"
+    t.text     "teachers"
   end
 
   create_table "schools", :force => true do |t|
