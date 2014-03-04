@@ -8,7 +8,7 @@ class Coursera
         description: Coursera.populate_course_descriptions(course['short_name']),
         course_url: "https://www.coursera.org/course/#{course['short_name']}",
         course_img_url: course["photo"],
-        start_date: nil,
+        start_date: Coursera.populate_start_dates(course),
         school_id: Coursera.populate_school(course)
       }
     end
@@ -31,7 +31,16 @@ private
     description = doc.css('p').inner_text
     description.gsub("\n", '').split(/ {2,}/).join('')
   end
-end
 
-# course is currently missing:
-## start date
+  def self.populate_start_dates(course)
+    course_dates = []
+    course["courses"].each do |course_instance|
+      course_dates << "#{course_instance["start_year"]}-#{course_instance["start_month"]}-#{course_instance["start_day"]}"
+    end
+    course_dates.select! {|date| date.match(/\d{4}-\d{1,2}-\d{1,2}/)}
+    starting_dates = course_dates.select do |date|
+      (Chronic.parse(date) > Chronic.parse("today")) || (Chronic.parse(date) == Chronic.parse("today at noon"))
+    end
+    starting_dates.first # the soonest start date for that class
+  end
+end

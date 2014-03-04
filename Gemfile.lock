@@ -42,6 +42,7 @@ GEM
       xpath (~> 2.0)
     childprocess (0.5.1)
       ffi (~> 1.0, >= 1.0.11)
+    chronic (0.10.2)
     chunky_png (1.3.0)
     coderay (1.1.0)
     coffee-rails (3.2.2)
@@ -191,6 +192,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   capybara
+  chronic
   coffee-rails (~> 3.2.1)
   compass-rails
   database_cleaner

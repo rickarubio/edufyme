@@ -11,27 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140302071311) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.string   "category_img_url"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
-  end
-
-  create_table "course_teachers", :force => true do |t|
-    t.integer  "teacher_id"
-    t.integer  "course_id"
-    t.boolean  "starred"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
+ActiveRecord::Schema.define(:version => 20140303230644) do
 
   create_table "course_users", :force => true do |t|
     t.integer  "user_id"
     t.integer  "course_id"
-    t.boolean  "starred",    :default => false
+    t.boolean  "favorited",  :default => false
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.boolean  "completed",  :default => false
@@ -45,10 +30,9 @@ ActiveRecord::Schema.define(:version => 20140302071311) do
     t.string   "course_url"
     t.string   "course_img_url"
     t.date     "start_date"
-    t.date     "end_date"
-    t.datetime "created_at",        :null => false
-    t.datetime "updated_at",        :null => false
-    t.text     "short_description"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "teachers"
   end
 
   create_table "schools", :force => true do |t|
@@ -57,15 +41,6 @@ ActiveRecord::Schema.define(:version => 20140302071311) do
     t.string   "school_img_url"
     t.datetime "created_at",                                             :null => false
     t.datetime "updated_at",                                             :null => false
-  end
-
-  create_table "teachers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "teacher_img_url"
-    t.string   "teacher_url"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
   end
 
   create_table "users", :force => true do |t|
