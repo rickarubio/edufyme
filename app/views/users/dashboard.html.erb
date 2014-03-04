@@ -33,9 +33,13 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -61,9 +65,13 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
@@ -89,9 +97,13 @@
 					</div>
 					<div class="course-description">
 						<%= link_to course.short_title, course.course_url %>
-						<p><%= course.school.name %></p>
+						<p><%= School.short_school_name(course.school.name) %></p>
 						<div class="course-date">
-							<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				</div>
