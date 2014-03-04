@@ -11,7 +11,7 @@ class CoursesController < ApplicationController
   def show
     @course = Course.find(params[:id])
     respond_to do |format|
-      format.json {render :json => @course}
+      format.json {render :json => [@course, School.find(@course.school_id)]}
     end
   end
 
