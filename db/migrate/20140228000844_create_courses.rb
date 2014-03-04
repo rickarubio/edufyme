@@ -2,7 +2,6 @@ class CreateCourses < ActiveRecord::Migration
   def change
     create_table :courses do |t|
       t.belongs_to :school
-      t.belongs_to :category
       t.string :title
       t.text :description
       t.string :course_url
