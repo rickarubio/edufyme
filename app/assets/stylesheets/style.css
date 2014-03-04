@@ -94,6 +94,14 @@ nav li {
   border-bottom: #dadfe1 1px solid;
 }
 
+.courses-container h3 {
+  text-align: center;
+}
+
+.dashboard-message {
+  background-color: rgba(150, 150, 150, 0.5)
+}
+
 .course-image {
   position: relative;
   text-align: center;
@@ -107,6 +115,7 @@ nav li {
   width: 100%;
   color: #2E3632;
   text-decoration: none;
+  text-align: center;
 }
 
 .course-description a{
