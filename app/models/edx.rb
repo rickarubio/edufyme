@@ -1,53 +1,53 @@
 class Edx
 
   def self.boom!
-    parse_first_course_list
-    find_course_list_length.times do |num|
-      parse_course_lists(num)
-    end
-
+    Edx.find_course_list_length
   end
 
   private
 
-  def find_course_list_length
+  def self.find_course_list_length
     list = Nokogiri::HTML(HTTParty.get("https://www.edx.org/course-list"))
     last_url = list.search('.pager-last a').map { |link| link['href'] }.join
-    length = last_url.match(/\d+/).to_s.to_i
+    length = last_url.match(/\d+/).to_s.to_i + 1
+    Edx.parse_course_list_urls(length)
   end
 
-  def parse_first_course_list
-    doc = Nokogiri::HTML(HTTParty.get("https://www.edx.org/course-list"))
-    titles = doc.search('.title').map { |font| font.inner_text }
-    course_urls = doc.search('.title a').map { |link| link['href'] }
-    start_dates = doc.search('.first li').map { |font| font.inner_text }
+  def self.parse_course_list_urls(length)
+    length.times do |num|
+      Edx.course_list_pages(Nokogiri::HTML(HTTParty.get("https://www.edx.org/course-list?page=#{num}")))
+    end
   end
 
-  def self.parse_course_lists
-    course_numbers =
-    course_lists = HTTParty.get("https://www.edx.org/course-list")
-
+  def self.course_list_pages(urls)
+    course_urls = urls.search('.title a').map { |link| link['href'] }
+    Edx.aggregate_course_data(course_urls)
   end
 
-  def self.parse_courses(course_list_number)
-    courses = HTTParty.get("https://www.edx.org/course-list?page=#{course_list_number}")
+  def self.aggregate_course_data(course_urls)
+    course_urls.map do |url|
+      doc = Nokogiri::HTML(HTTParty.get(url))
+      school_name = doc.search('.course-detail-school a').inner_text
+      school_url_partial = doc.search('.course-detail-school a').map { |link| link['href'] }.join
+      school_url = "https://www.edx.org" + school_url_partial
+      new_school = School.create(name: school_name, school_url: school_url, school_img_url: "")
+      title = doc.search('.course-detail-title').map { |font| font.inner_text }.join
+      start_dates_unformatted = doc.search('.course-detail-start').map { |font| font.inner_text }.join
+      start_date = Edx.date_formatter(start_dates_unformatted)
+      description = doc.search('.course-section p').inner_text
+      course_img_url = doc.search('.course-detail-image img').map { |img| img['src'] }.join
+      teachers = doc.search('.view-display-id-staff h4').map { |font| font.inner_text }.join(", ")
+      Course.create(title: title, description: description, course_url: url, course_img_url: course_img_url, start_date: start_date, teachers: teachers, school_id: new_school.id )
+    end
   end
+
+  def self.date_formatter(start_date)
+    start_date.gsub(/Classes Starts: /, '')
+    if Chronic.parse(start_date)
+      Chronic.parse(start_date).strftime('%Y-%m-%d')
+    else
+      start_date
+    end
+  end
+
 end
-
-#Course List
-# https://www.edx.org/course-list
-# https://www.edx.org/course-list?page=#{}
-
-#Course Specific Page
-# https://www.edx.org/course/mitx/mitx-15-071x-analytics-edge-1416
-# https://www.edx.org/course/school_name/school_name-course-id-course-name-someidentifier
-# "." in course ID are replaced by "-"
-
-#Things we need
-# title
-# description
-# course_url
-# course_img_url
-# start_date
-# teachers
-# school_name
