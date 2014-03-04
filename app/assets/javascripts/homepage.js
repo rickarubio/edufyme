@@ -51,8 +51,10 @@ var Overlay = (function() {
     courseArray = courseArray.split(", ");
     if ($.inArray((course.id).toString(), courseArray) === -1 ){
       $('.overlay-remove-course').css('display', 'none');
+      $('.overlay-add-course').css('display', 'inherit');
     } else {
       $('.overlay-add-course').css('display', 'none');
+      $('.overlay-remove-course').css('display', 'inherit');
       $('.favorite-course').removeAttr('disabled');
     };
 
@@ -67,13 +69,34 @@ var Overlay = (function() {
     favoritedArray = favoritedArray.split(", ");
     if ($.inArray((course.id).toString(), favoritedArray) === -1){
       $('.unfavorite-course').css('display', 'none');
-
+      $('.favorite-course').css('display', 'inherit');
     } else {
       $('.favorite-course').css('display', 'none');
+      $('.unfavorite-course').css('display', 'inherit');
     };
 
     $('.favorite-course').attr('data-course-id', course.id);
     $('.unfavorite-course').attr('data-course-id', course.id);
+
+    var completedCourseIDs = $('#current-user-completed-classes').attr('data-completed-course-ids')
+    if ($('#current-user-completed-classes').attr('data-completed-course-ids') === undefined){
+      var completedCourseIDs = " "
+    } else {
+      var completedCourseIDs = $('#current-user-completed-classes').attr('data-completed-course-ids')
+    };
+    var completedArray = completedCourseIDs.replace("[", "");
+    completedArray = completedArray.replace("]", "");
+    completedArray = completedArray.split(", ");
+    if ($.inArray((course.id).toString(), completedArray) === -1){
+      $('.uncomplete-course').css('display', 'none');
+      $('.complete-course').css('display', 'inherit');
+    } else {
+      $('.complete-course').css('display', 'none');
+      $('.uncomplete-course').css('display', 'inherit');
+    };
+
+    $('.complete-course').attr('data-course-id', course.id);
+    $('.uncomplete-course').attr('data-course-id', course.id);
     $('.overlay-course-title').text(course.title);
     $('.modal img').attr('src', course.course_img_url);
     $('.modal a').attr('href', course.course_url);
@@ -117,7 +140,7 @@ var Overlay = (function() {
 var disableDeviseLoginLogout = (function() {
   // _private vars and _functions
   return {
-    
+
   }
 })();
 

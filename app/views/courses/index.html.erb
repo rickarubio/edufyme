@@ -8,6 +8,10 @@
   <% course_user.each {|cu| favorited_array << cu.course_id if cu.favorited == true} %>
   <div id="current-user-favorited-classes" display="hidden" data-favorited-course-ids="<%= favorited_array %>">
   </div>
+  <% completed_array = [] %>
+  <% course_user.each {|cu| completed_array << cu.course_id if cu.completed == true} %>
+  <div id="current-user-completed-classes" display="hidden" data-completed-course-ids="<%= completed_array %>">
+  </div>
 <% end %>
 <%= render "shared/top_navbar" %>
 <div class="container">
@@ -52,6 +56,8 @@
       <button class="overlay-add-course">Add Course</button>
       <button class="favorite-course" disabled="disabled">Favorite Course</button>
       <button class="unfavorite-course">Unfavorite Course</button>
+      <button class="complete-course" disabled="disabled">Complete Course</button>
+      <button class="uncomplete-course">Uncomplete Course</button>
       <div class="overlay-ratings">
         <p></p>
       </div>

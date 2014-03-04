@@ -1,72 +1,84 @@
 <%= render "shared/top_navbar" %>
 <div class="container">
-
-	<div class="dashboard-search">
-		<p>Hello <%= current_user.email %></p>
-		<%= text_field_tag :search, params[:search] %>
-		<%= submit_tag "Search", :name => nil %>
+	<div class="user-favorited-courses-title">
+		<h3>Your Favorite Courses</h3>
 	</div>
-
-	<div class="dashboard-courses-container">
-		<div class="dashboard-courses">
-			<h1>Current Courses</h1>
-			<% unless @current_courses.empty? %>
-				<% @current_courses.each do |course| %>
-					<div class="dashboard-courses-image">
-						<img src=<%=course.course_img_url%>>
+	<div class="courses-container">
+		<% if @favorited_courses.nil? || @favorited_courses.empty? %>
+			<div class="dashboard-message">
+				<h3>You have not favorited any courses.</h3>
+			</div>
+		<% else %>
+			<% @favorited_courses.each do |course| %>
+				<div class="course" data-course-id=<%= course.id %>>
+					<div class="course-image">
+						<img src=<%= course.course_img_url %> alt="Course Image">
 					</div>
-					<div class="dashboard-courses-description">
-						<%= link_to "#{course.short_title}", course.course_url %>
-						<p><%=course.school.name%></p>
+					<div class="course-description">
+						<%= link_to course.short_title, course.course_url %>
+						<p><%= course.school.name %></p>
+						<div class="course-date">
+							<span class="date-display">Start Date: <%= course.start_date %></span>
+						</div>
 					</div>
-					<div class="dashboard-courses-date">
-            <span class="date-display">Start Date: <%=course.start_date%></span>
-					</div>
-				<% end %>
-			<% else %>
-				<p><%= "You aren't registered for any classes yet!"%></p>
+				</div>
 			<% end %>
-		</div>
+		<% end %>
+	</div>
+</div>
 
-		<div class="dashboard-courses">
-			<h1>Starred Courses</h1>
-			<% unless @favorited_courses.empty? %>
-				<% @favorited_courses.each do |favorited| %>
-					<div class="dashboard-courses-image">
-						<img src=<%=Course.find(favorited.course_id).course_img_url%>>
+<div class="container">
+	<div class="user-current-courses-title">
+		<h3>Your Current Courses</h3>
+	</div>
+	<div class="courses-container">
+		<% if @current_courses.nil? || @current_courses.empty? %>
+			<div class="dashboard-message">
+				<h3>You have not added any courses.</h3>
+			</div>
+		<% else %>
+			<% @current_courses.each do |course| %>
+				<div class="course" data-course-id=<%= course.id %>>
+					<div class="course-image">
+						<img src=<%= course.course_img_url %> alt="Course Image">
 					</div>
-					<div class="dashboard-courses-description">
-						<%= link_to "#{Course.find(favorited.course_id).short_title}", Course.find(favorited.course_id).course_url %>
-						<p><%=Course.find(favorited.course_id).school.name%></p>
+					<div class="course-description">
+						<%= link_to course.short_title, course.course_url %>
+						<p><%= course.school.name %></p>
+						<div class="course-date">
+							<span class="date-display">Start Date: <%= course.start_date %></span>
+						</div>
 					</div>
-					<div class="dashboard-courses-date">
-            <span class="date-display">Start Date: <%=Course.find(favorited.course_id).start_date%></span>
-					</div>
-				<% end %>
-			<% else %>
-				<p><%= "You aren't favorited any classes yet!"%></p>
+				</div>
 			<% end %>
-		</div>
+		<% end %>
+	</div>
+</div>
 
-		<div class="dashboard-courses">
-			<h1>Completed Courses</h1>
-			<% unless @favorited_courses.empty? %>
-				<% @favorited_courses.each do |completed| %>
-					<div class="dashboard-courses-image">
-						<img src=<%=Course.find(completed.course_id).course_img_url%>>
+<div class="container">
+	<div class="user-completed-courses-title">
+		<h3>Your Completed Courses</h3>
+	</div>
+	<div class="courses-container">
+		<% if @completed_courses.nil? || @completed_courses.empty? %>
+			<div class="dashboard-message">
+				<h3>You have not completed any courses.</h3>
+			</div>
+		<% else %>
+			<% @completed_courses.each do |course| %>
+				<div class="course" data-course-id=<%= course.id %>>
+					<div class="course-image">
+						<img src=<%= course.course_img_url %> alt="Course Image">
 					</div>
-					<div class="dashboard-courses-description">
-						<%= link_to "#{Course.find(completed.course_id).short_title}", Course.find(completed.course_id).course_url %>
-						<p><%=Course.find(completed.course_id).school.name%></p>
+					<div class="course-description">
+						<%= link_to course.short_title, course.course_url %>
+						<p><%= course.school.name %></p>
+						<div class="course-date">
+							<span class="date-display">Start Date: <%= course.start_date %></span>
+						</div>
 					</div>
-					<div class="dashboard-courses-date">
-            <span class="date-display">Start Date: <%=Course.find(completed.course_id).start_date%></span>
-					</div>
-				<% end %>
-			<% else %>
-				<p><%= "You haven't completed any classes yet!"%></p>
+				</div>
 			<% end %>
-		</div>
-
+		<% end %>
 	</div>
 </div>
