@@ -14,7 +14,7 @@ class Course < ActiveRecord::Base
   end
 
   def short_title
-    max_title_length = 37
+    max_title_length = 36
     self.title.slice(0, max_title_length)
   end
 
