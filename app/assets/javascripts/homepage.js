@@ -17,6 +17,12 @@ var bindEvents = function() {
     e.preventDefault();
     Overlay.hide();
     $('#school img').attr('src', '');
+    // if the user is in the dashboard page
+    // after performing a course action, on exit of course modal
+    // refresh the page to show the changes for the user.
+    if (window.location.pathname.match(/users/) != null) {
+      location.reload();
+    }
   }),
 
   //BUG: do this for particular course, not all at once
