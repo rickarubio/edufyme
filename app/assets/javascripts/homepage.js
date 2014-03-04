@@ -16,6 +16,7 @@ var bindEvents = function() {
   $('.overlay').on('click', function(e){
     e.preventDefault();
     Overlay.hide();
+    $('#school img').attr('src', '');
   }),
 
   //BUG: do this for particular course, not all at once
@@ -37,7 +38,7 @@ var bindEvents = function() {
 
 var Overlay = (function() {
 
-  var _populateCourseInfo = function(course) {
+  var _populateCourseInfo = function(course, school) {
     $('.overlay-add-course').attr('data-course-id', course.id);
     $('.overlay-remove-course').attr('data-course-id', course.id);
     var addedCourseIDs = $('#current-user-added-classes').attr('data-added-course-ids')
@@ -98,14 +99,20 @@ var Overlay = (function() {
     $('.complete-course').attr('data-course-id', course.id);
     $('.uncomplete-course').attr('data-course-id', course.id);
     $('.overlay-course-title').text(course.title);
-    $('.modal img').attr('src', course.course_img_url);
+    $('.course-image').attr('src', course.course_img_url);
+    if (school.school_img_url === "") {
+      $('#school img').attr('src', "/images/default-school.jpg" );
+    } else {
+      $('#school img').attr('src', school.school_img_url );
+    }
     $('.modal a').attr('href', course.course_url);
     $('.modal a').text(course.title);
     $('.overlay-course-description').text(course.description);
-    $('.overlay-ratings p').text("Ratings");
-    $('.overlay-prerequisites p').text("Prerequisites");
-    $('.overlay-teacher img').attr('src', 'http://www.biography.com/imported/images/Biography/Images/Profiles/T/Mark-Twain-9512564-1-402.jpg');
-    $('.overlay-teacher-bio').text('Insert Teacher Bio Here!' + course.description.slice(1, 450) + '...');
+    if (course.teachers === null || course.teachers === "") {
+      $('.teachers p').text("Instructors Not Yet Assigned")
+    } else {
+      $('.teachers p').text(course.teachers);
+    }
   }
 
   var _display = function() {
@@ -122,8 +129,10 @@ var Overlay = (function() {
     var course_id = $(course).attr('data-course-id');
     $.ajax({
       url: '/courses/' + course_id
-    }).done(function(course){
-      _populateCourseInfo(course);
+    }).done(function(data){
+      course = data[0]
+      school = data[1]
+      _populateCourseInfo(course, school);
     }).fail(function(){
       alert('failed');
     })

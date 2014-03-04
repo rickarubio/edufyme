@@ -133,6 +133,12 @@ nav li {
   opacity: 0.5;
 }
 
+#school img {
+  width: 299px;
+  height: 80px;
+  margin: 20px 0;
+}
+
 .modal {
   display: none;
   position: fixed;
@@ -144,21 +150,7 @@ nav li {
   border: #dadfe1 1px solid;
   border-radius: 5px;
   background-color: #FFFFFF;
-/*  display: none;
-  margin: 0 auto;
-  top: 25%;
-  left: 25%;
-  position: absolute;
-  float: center;
-  width: 800px;
-  height: 870px;
-  min-width: 300px;
-  border: #dadfe1 1px solid;
-  border-radius: 5px;
-  z-index: 101;
-  background-color: #FFFFFF;*/
-/*  width: 80%;
-  height: 80%;*/
+  padding: 10px;
 }
 
 .exit-modal {
@@ -180,19 +172,22 @@ nav li {
 .overlay-course-main, .current-courses {
   display: inline-block;
   padding: 4px;
-  width: 66%;
+  width: 100%;
   height: 100%;
+  text-align: center;
+  font-size: large;
 }
 
-.overlay-course-main img {
-  width: 100%;
+.overlay-image-and-buttons img {
+  width: 66%;
+  height: 354px;
   border: #dadfe1 1px solid;
   border-radius: 5px;
 }
 
 .overlay-course-description {
   width: 100%;
-  height: 40%;
+  height: 101%;
   border: #dadfe1 1px solid;
   border-radius: 5px;
   padding: 5px;
@@ -204,7 +199,7 @@ nav li {
   float: right;
   display: inline-block;
   width: 33%;
-  height: 100%;
+  height: 354px;
   padding: 4px;
 }
 
