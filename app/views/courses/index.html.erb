@@ -78,10 +78,10 @@
   <p class="alert"><%= alert %></p>
   <h1>User Login</h1>
   <%= form_tag user_session_path, :id => 'loginform', :remote => true do %>
-    <%= label_tag "user[email]" %>
-    <%= text_field_tag "user[email]", class: "txtfield" %>
-    <%= label_tag "user[password]" %>
-    <%= password_field_tag "user[password]", class: "txtfield" %>
+    <%= label_tag "Email" %>
+    <%= text_field_tag "user[email]" %>
+    <%= label_tag "Password" %>
+    <%= password_field_tag "user[password]" %>
     <%= link_to "Forgot your password?", new_password_path(:user) %><br><br>
     <p><%= submit_tag 'Sign in' %></p>
     <% end %>

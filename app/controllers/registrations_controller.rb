@@ -16,11 +16,17 @@ class RegistrationsController < Devise::RegistrationsController
       flash[:notice] = []
       if params[:sign_up_params][:email].nil? || params[:sign_up_params][:email] !~ /@\w+\.\w+/
         flash[:notice] << "You must enter a valid email address"
-      elsif params[:sign_up_params][:password].nil? || params[:sign_up_params][:password].length < 8
+      end
+
+      if params[:sign_up_params][:password].nil? || params[:sign_up_params][:password].length < 8
         flash[:notice] << "You must enter a valid password"
-      elsif params[:sign_up_params][:password] != params[:sign_up_params][:password_confirmation]
+      end
+
+      if params[:sign_up_params][:password] != params[:sign_up_params][:password_confirmation]
         flash[:notice] << "Passwords do not match"
-      else
+      end
+
+      if !User.find_by_email(params[:sign_up_params][:email]).nil? && params[:sign_up_params][:email] == User.find_by_email(params[:sign_up_params][:email]).email
         flash[:notice] << "Email is already taken"
       end
       render json: flash[:notice], status: :unprocessable_entity

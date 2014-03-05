@@ -6,6 +6,6 @@ class SessionsController < Devise::SessionsController
   end
 
   def failure
-    render :json => {:success => false, :errors => ["Login failed."]}, :status => :unprocessable_entity
+    render :json => {:errors => "Login failed."}, :status => :unprocessable_entity
   end
 end

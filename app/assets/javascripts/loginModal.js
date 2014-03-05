@@ -60,12 +60,13 @@
 
 $(function(){
   $("#signupform").submit(validateParams.checkSignUp);
-    $('#loginform').on('ajax:success', function(){
+  $('#loginform').on('ajax:success', function(){
     window.location.href = "/"
   })
-    $('#loginform').on('ajax:error', function(){
-    debugger
-  })
+  $('#loginform').on('ajax:error', function(){
+    $('#loginmodal .notice').empty();
+    $('#loginmodal .notice').append("Email or password incorrect")
+    })
 
 });
 
@@ -92,22 +93,11 @@ var validateParams = (function() {
       })
     },
 
-    checkLogIn: function() {
-      var userEmail = $('#loginmodal #user_email').val();
-      var userPassword = $('#loginmodal #user_password').val();
-      var userRememberMe = $('#loginmodal #user_remember_me').val();
-      $.ajax({
-        url: '/users/sign_in',
-        method: 'POST',
-        data: {login_params: {email: userEmail, password: userPassword, remember_me: userRememberMe}}
-      }).done(function(data){
-        debugger
-        // window.location.href = "/"
-      }).fail(function(customError){
-        debugger
-        $('#loginmodal .notice').empty();
-        $('#loginmodal .notice').append(customError.responseText);
-      })
-    }
+    // loginError: function() {
+    //   debugger
+    //   $('#loginmodal .notice').empty();
+    //   $('#loginmodal .notice').append(customError.responseText);
+    // })
+    // }
   }
 })();
