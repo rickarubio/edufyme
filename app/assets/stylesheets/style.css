@@ -17,10 +17,10 @@ iframe::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, .5);
 }
 
-iframe::-webkit-scrollbar-track { 
-    background-color: #fff; 
-    border-radius: 8px; 
-} 
+iframe::-webkit-scrollbar-track {
+    background-color: #fff;
+    border-radius: 8px;
+}
 
 /* ************ */
 .search {
@@ -76,7 +76,6 @@ body {
   background-image: url('/images/cream_dust.png');
 }
 
-
 .nav-bar {
   font-size: small;
   margin: 0;
@@ -89,6 +88,11 @@ body {
   background-color: #F5F5F5;
   z-index: 100;
   height: 80px;
+}
+
+.nav-bar ul {
+  font-size: 20px;
+  padding-top: 25px;
 }
 
 div.container {
