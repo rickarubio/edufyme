@@ -1,8 +1,7 @@
 class RegistrationsController < Devise::RegistrationsController
 
   def create
-    build_resource(sign_up_params)
-    p sign_up_params
+    build_resource(params[:sign_up_params])
     if resource.save
       yield resource if block_given?
       if resource.active_for_authentication?
@@ -14,19 +13,20 @@ class RegistrationsController < Devise::RegistrationsController
         expire_data_after_sign_in!
       end
     else
-      if sign_up_params[:email].nil? || sign_up_params[:email] !~ /@\w+\.\w+/
+      flash[:notice] = []
+      if params[:sign_up_params][:email].nil? || params[:sign_up_params][:email] !~ /@\w+\.\w+/
         flash[:notice] << "You must enter a valid email address"
       end
 
-      if sign_up_params[:password].nil? || sign_up_params[:password].length < 8
-        flash[:notice] = "You must enter a valid password"
+      if params[:sign_up_params][:password].nil? || params[:sign_up_params][:password].length < 8
+        flash[:notice] << "You must enter a valid password"
       end
 
-      if sign_up_params[:password] != sign_up_params[:password_confirmation]
-        flash[:notice] = "Passwords do not match"
+      if params[:sign_up_params][:password] != params[:sign_up_params][:password_confirmation]
+        flash[:notice] << "Passwords do not match"
       end
       p flash
-      render json: sign_up_params
+      render json: flash[:notice], status: :unprocessable_entity
     end
   end
 end

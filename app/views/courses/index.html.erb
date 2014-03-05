@@ -92,7 +92,7 @@
 </div>
 
 <div id="signupmodal" style="display:none;">
-  <p class="notice"><%= notice %></p>
+  <p class="notice"></p>
   <h1>Sign Up</h1>
 <%= form_for(:user, :url => registration_path(:user), html: {id: "signupform"}) do |f| %>
   <%= f.label :email %>

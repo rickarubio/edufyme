@@ -18,7 +18,9 @@
         $(this).click(function(e) {
           var modal_id = $(this).attr("href");
           $("#lean_overlay").click(function() {
-           close_modal(modal_id);
+          close_modal(modal_id);
+          $('#signupmodal .notice').empty()
+          $('#signupmodal').find("input[type=text], input[type=password]").val("");
          });
 
           $(o.closeButton).click(function() {
@@ -58,21 +60,30 @@
 })(jQuery);
 
 $(function(){
-  $("input[name='commit']").on('click', validateParams.checkPassword);
-  $("input[name='commit']").on('click', validateParams.checkEmail);
+  $("#signupform").submit(validateParams.checkPassword);
+  // $("input[name='commit']").on('submit', validateParams.checkEmail);
 });
 
 var validateParams = (function() {
 
   return {
     checkPassword: function() {
+      var userEmail = $('#signupmodal #user_email').val();
+      var userPassword = $('#signupmodal #user_password').val();
+      var userPasswordConfirm = $('#signupmodal #user_password_confirmation').val();
+      var userRememberMe = $('#signupmodal #user_remember_me').val();
       event.preventDefault();
       $.ajax({
         url: '/users',
         method: 'POST',
-        data: {}
-      }).done(function(errors){
-        console.log(errors);
+        data: {sign_up_params: {email: userEmail, password: userPassword, password_confirmation: userPasswordConfirm, remember_me: userRememberMe}}
+      }).done(function(data){
+        window.location.href = "/"
+      }).fail(function(customError){
+        $('#signupmodal .notice').empty();
+        $.each(customError.responseJSON, function(index, value) {
+          $('#signupmodal .notice').append(value + '<br />');
+        });
       })
     },
 
