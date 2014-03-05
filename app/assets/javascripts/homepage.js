@@ -20,9 +20,11 @@ var bindEvents = function() {
     // if the user is in the dashboard page
     // after performing a course action, on exit of course modal
     // refresh the page to show the changes for the user.
-    if (window.location.pathname.match(/users/) != null) {
-      location.reload();
-    }
+    // if (window.location.pathname.match(/users/) != null) {
+    //   location.reload();
+    // }
+    $("iframe").contents().find('link').remove();
+    $("iframe").contents().find('p').remove();
   }),
 
   //BUG: do this for particular course, not all at once
@@ -117,6 +119,9 @@ var Overlay = (function() {
     $('.modal a').attr('href', course.course_url);
     $('.modal a').text(course.title);
     $('.overlay-course-description').text(course.description);
+    /* testing */
+    CourseDescription.writeDescription(course);
+    /* testing */
     if (course.teachers === null || course.teachers === "") {
       $('.teachers p').text("Instructors Not Yet Assigned")
     } else {
@@ -158,6 +163,24 @@ var Overlay = (function() {
 var disableDeviseLoginLogout = (function() {
   // _private vars and _functions
   return {
+
+  }
+})();
+
+var CourseDescription = (function() {
+  // _private vars and _functions
+  _applyStyle = function () {
+    var $head = $("iframe").contents().find("head");                
+    $head.append($("<link/>", 
+      { rel: "stylesheet", href: "/assets/style.css", type: "text/css" }));
+    $("iframe").contents().find("html").css("overflow-y", "scroll");
+  }
+
+  return {
+    writeDescription: function(course) {
+      $('iframe').get()[0].contentWindow.document.write("<p id='course-description'>" + course.description + "</p>");
+      _applyStyle();
+    }
 
   }
 })();
