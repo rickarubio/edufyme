@@ -18,12 +18,25 @@ var Search = (function(){
         var enterKeyCode = 13;
         if (e.keyCode === enterKeyCode) {
           Search.clearSearch();
+          Search.submitQuery();
         }
       });
     },
 
     clearSearch: function() {
       $('.search input').val("");
+    },
+
+    submitQuery: function() {
+      alert('query sent - not really');
+      $.ajax({
+        url: "/courses/search/",
+        data: "ruby"
+      }).done(function() {
+        alert('sending search query successful');
+      }).fail(function() {
+        alert('sending search query failed');
+      });
     }
   }
 })();

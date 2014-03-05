@@ -16,6 +16,7 @@ class CoursesController < ApplicationController
   end
 
   def search
+    binding.pry()
     @courses = Course.search_for(params[:search])
     render json: @courses
   end
