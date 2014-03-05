@@ -18,7 +18,9 @@
         $(this).click(function(e) {
           var modal_id = $(this).attr("href");
           $("#lean_overlay").click(function() {
-           close_modal(modal_id);
+          close_modal(modal_id);
+          $('#signupmodal .notice').empty()
+          $('#signupmodal').find("input[type=text], input[type=password]").val("");
          });
 
           $(o.closeButton).click(function() {
@@ -56,3 +58,51 @@
   });
 
 })(jQuery);
+
+$(function(){
+  $("#signupform").submit(validateParams.checkSignUp);
+  $("#loginform").submit(validateParams.checkLogIn);
+});
+
+var validateParams = (function() {
+
+  return {
+    checkSignUp: function() {
+      var userEmail = $('#signupmodal #user_email').val();
+      var userPassword = $('#signupmodal #user_password').val();
+      var userPasswordConfirm = $('#signupmodal #user_password_confirmation').val();
+      var userRememberMe = $('#signupmodal #user_remember_me').val();
+      event.preventDefault();
+      $.ajax({
+        url: '/users',
+        method: 'POST',
+        data: {sign_up_params: {email: userEmail, password: userPassword, password_confirmation: userPasswordConfirm, remember_me: userRememberMe}}
+      }).done(function(data){
+        window.location.href = "/"
+      }).fail(function(customError){
+        $('#signupmodal .notice').empty();
+        $.each(customError.responseJSON, function(index, value) {
+          $('#signupmodal .notice').append(value + '<br />');
+        });
+      })
+    },
+
+    checkLogIn: function() {
+      var userEmail = $('#loginmodal #user_email').val();
+      var userPassword = $('#loginmodal #user_password').val();
+      var userRememberMe = $('#loginmodal #user_remember_me').val();
+      $.ajax({
+        url: '/users/sign_in',
+        method: 'POST',
+        data: {login_params: {email: userEmail, password: userPassword, remember_me: userRememberMe}}
+      }).done(function(data){
+        window.location.href = "/"
+        debugger
+      }).fail(function(customError){
+        debugger
+        $('#loginmodal .notice').empty();
+        $('#loginmodal .notice').append(customError.responseText);
+      })
+    }
+  }
+})();

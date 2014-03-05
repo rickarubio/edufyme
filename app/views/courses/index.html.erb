@@ -16,7 +16,7 @@
 <%= render "shared/top_navbar" %>
 <div class="container">
   <div class="login-signup-errors">
-    <%= @login_signup_errors %>
+    <%= params[:login_signup_errors] %>
   </div>
   <div class="featured-courses-title">
     <h3>Featured Courses</h3>
@@ -74,22 +74,21 @@
 </div>
 
 <div id="loginmodal" style="display:none;">
-  <p class="notice"><%= notice %></p>
+  <p class="notice"></p>
   <p class="alert"><%= alert %></p>
   <h1>User Login</h1>
-  <%= form_for(:user, :url => session_path(:user), html: {id: "loginform"}) do |f| %>
+  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'loginform'}, :format => :json, :remote => true ) do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email, class: "txtfield" %>
     <%= f.label :password %>
     <%= f.password_field :password, class: "txtfield" %>
-    <%= f.label :remember_me %>
-    <%= f.check_box :remember_me %><br /><br />
-    <%= f.submit 'Sign in' %><br /><br />
-    <%= link_to "Forgot your password?", new_password_path(:user) %>
-<% end %>
+    <%= link_to "Forgot your password?", new_password_path(:user) %><br><br>
+    <p><%= f.submit 'Sign in' %></p>
+    <% end %>
 </div>
 
 <div id="signupmodal" style="display:none;">
+  <p class="notice"></p>
   <h1>Sign Up</h1>
 <%= form_for(:user, :url => registration_path(:user), html: {id: "signupform"}) do |f| %>
   <%= f.label :email %>
