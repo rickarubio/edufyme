@@ -56,3 +56,28 @@
   });
 
 })(jQuery);
+
+$(function(){
+  $("input[name='commit']").on('click', validateParams.checkPassword);
+  $("input[name='commit']").on('click', validateParams.checkEmail);
+});
+
+var validateParams = (function() {
+
+  return {
+    checkPassword: function() {
+      event.preventDefault();
+      $.ajax({
+        url: '/users',
+        method: 'POST',
+        data: {}
+      }).done(function(errors){
+        console.log(errors);
+      })
+    },
+
+    checkEmail: function() {
+      event.preventDefault();
+    }
+  }
+})();

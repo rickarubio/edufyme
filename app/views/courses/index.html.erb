@@ -16,7 +16,7 @@
 <%= render "shared/top_navbar" %>
 <div class="container">
   <div class="login-signup-errors">
-    <%= @login_signup_errors %>
+    <%= params[:login_signup_errors] %>
   </div>
   <div class="featured-courses-title">
     <h3>Featured Courses</h3>
@@ -92,6 +92,7 @@
 </div>
 
 <div id="signupmodal" style="display:none;">
+  <p class="notice"><%= notice %></p>
   <h1>Sign Up</h1>
 <%= form_for(:user, :url => registration_path(:user), html: {id: "signupform"}) do |f| %>
   <%= f.label :email %>
