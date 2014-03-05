@@ -60,14 +60,14 @@
 })(jQuery);
 
 $(function(){
-  $("#signupform").submit(validateParams.checkPassword);
-  // $("input[name='commit']").on('submit', validateParams.checkEmail);
+  $("#signupform").submit(validateParams.checkSignUp);
+  $("#loginform").submit(validateParams.checkLogIn);
 });
 
 var validateParams = (function() {
 
   return {
-    checkPassword: function() {
+    checkSignUp: function() {
       var userEmail = $('#signupmodal #user_email').val();
       var userPassword = $('#signupmodal #user_password').val();
       var userPasswordConfirm = $('#signupmodal #user_password_confirmation').val();
@@ -87,8 +87,22 @@ var validateParams = (function() {
       })
     },
 
-    checkEmail: function() {
-      event.preventDefault();
+    checkLogIn: function() {
+      var userEmail = $('#loginmodal #user_email').val();
+      var userPassword = $('#loginmodal #user_password').val();
+      var userRememberMe = $('#loginmodal #user_remember_me').val();
+      $.ajax({
+        url: '/users/sign_in',
+        method: 'POST',
+        data: {login_params: {email: userEmail, password: userPassword, remember_me: userRememberMe}}
+      }).done(function(data){
+        window.location.href = "/"
+        debugger
+      }).fail(function(customError){
+        debugger
+        $('#loginmodal .notice').empty();
+        $('#loginmodal .notice').append(customError.responseText);
+      })
     }
   }
 })();
