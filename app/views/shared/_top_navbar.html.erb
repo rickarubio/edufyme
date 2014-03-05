@@ -1,7 +1,13 @@
 <div class="nav-bar">
+  <% if current_page?(root_path) %>
+    <div class="search">
+      <input type="search" results="5" name="searchbar" placeholder="What will you learn about today?">
+    </div>
+  <% end %>
   <nav class="nav">
     <ul>
       <li><%= link_to "NoodleSkoodle", root_path %></li>
+      <li>
       <% if user_signed_in? %>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
         <li><%= link_to "Dashboard", user_dashboard_path(current_user) %></li>
