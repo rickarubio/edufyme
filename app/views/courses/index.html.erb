@@ -77,13 +77,13 @@
   <p class="notice"></p>
   <p class="alert"><%= alert %></p>
   <h1>User Login</h1>
-  <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:id => 'loginform'}, :format => :json, :remote => true ) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email, class: "txtfield" %>
-    <%= f.label :password %>
-    <%= f.password_field :password, class: "txtfield" %>
+  <%= form_tag user_session_path, :id => 'loginform', :remote => true do %>
+    <%= label_tag "user[email]" %>
+    <%= text_field_tag "user[email]", class: "txtfield" %>
+    <%= label_tag "user[password]" %>
+    <%= password_field_tag "user[password]", class: "txtfield" %>
     <%= link_to "Forgot your password?", new_password_path(:user) %><br><br>
-    <p><%= f.submit 'Sign in' %></p>
+    <p><%= submit_tag 'Sign in' %></p>
     <% end %>
 </div>
 

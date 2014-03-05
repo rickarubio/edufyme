@@ -1,5 +1,4 @@
 (function($){
-
   $.fn.extend({
 
     leanModal: function(options) {
@@ -61,7 +60,13 @@
 
 $(function(){
   $("#signupform").submit(validateParams.checkSignUp);
-  $("#loginform").submit(validateParams.checkLogIn);
+    $('#loginform').on('ajax:success', function(){
+    window.location.href = "/"
+  })
+    $('#loginform').on('ajax:error', function(){
+    debugger
+  })
+
 });
 
 var validateParams = (function() {
@@ -96,8 +101,8 @@ var validateParams = (function() {
         method: 'POST',
         data: {login_params: {email: userEmail, password: userPassword, remember_me: userRememberMe}}
       }).done(function(data){
-        window.location.href = "/"
         debugger
+        // window.location.href = "/"
       }).fail(function(customError){
         debugger
         $('#loginmodal .notice').empty();
