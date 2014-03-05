@@ -27,19 +27,19 @@ iframe::-webkit-scrollbar-track {
   position: absolute;
   left: 25%;
   right: 25%;
-  top: 20px;
+  top: 15px;
 }
 .search input {
   margin: auto;
   width: 500px;
   border-radius: 25px;
-  font-family: 'ProximaNova-Light', sans-serif;
-  src: url('/fonts/ProximaNova-Light.otf');
+  font-family: 'Helvetica';
+  font-size: 14px;
 }
 
 ::-webkit-input-placeholder {
   color: #92A3A8;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'ProximaNova-Light', sans-serif;
   src: url('/fonts/ProximaNova-Light.otf');
 }
