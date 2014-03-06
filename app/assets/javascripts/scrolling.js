@@ -34,7 +34,7 @@ var infiniteScroll = (function() {
 		$courseTemplate.find('.course-description a').append(course.title.slice(0, 36))
 		$courseTemplate.find('.course-description p').append(school.slice(0, 39))
 		if (course.start_date === null) {
-			$courseTemplate.find('.course-description .date-display').text("Start Date: TBD")
+			$courseTemplate.find('.course-description .date-display').text("Start Date: Self-Paced")
 		} else {
 			$courseTemplate.find('.course-description .date-display').text("Start Date: " + course.start_date)
 		}
