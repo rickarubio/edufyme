@@ -166,16 +166,29 @@ body {
     list-style: none;
     text-align: center;
   }
+
   .nav-bar ul {
     display: none;
   }
+
   .search input {
     width: 304px;
     text-align: center;
   }
+
   .search {
     position: absolute;
     left: 0;
+  }
+
+  div.modal {
+    left: 0;
+    right: 0;
+  }
+
+  div#loginmodal {
+    left: 0;
+    right: 0;
   }
 }
 
