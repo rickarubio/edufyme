@@ -15,7 +15,7 @@
   <div id="current-user-completed-classes" display="hidden" data-completed-course-ids="<%= completed_array %>">
   </div>
 <% end %>
-
+<div id="dashboard-page">
 <div class="container">
 	<div class="mobile-menu">
 		<ul>
@@ -33,27 +33,26 @@
 	<div class="user-favorited-courses-title">
 		<h3>Your Favorite Courses</h3>
 	</div>
-		<div class="courses-container">
-			<% if @favorited_courses.nil? || @favorited_courses.empty? %>
-				<div class="dashboard-message">
-					<h3>You have not favorited any courses.</h3>
-				</div>
-			<% else %>
-				<% @favorited_courses.each do |course| %>
-					<div class="course" data-course-id=<%= course.id %>>
-						<div class="course-image">
-							<img src=<%= course.course_img_url %> alt="Course Image">
-						</div>
-						<div class="course-description">
-							<%= link_to course.short_title, course.course_url %>
-							<p><%= School.short_school_name(course.school.name) %></p>
-							<div class="course-date">
-								<% if course.start_date == nil %>
-									<span class="date-display">Start Date: TBD</span>
-								<% else %>
-									<span class="date-display">Start Date: <%= course.start_date %></span>
-								<% end %>
-							</div>
+	<div class="courses-container" id="favorite-courses">
+		<% if @favorited_courses.nil? || @favorited_courses.empty? %>
+			<div class="dashboard-message">
+				<h3>You have not favorited any courses.</h3>
+			</div>
+		<% else %>
+			<% @favorited_courses.each do |course| %>
+				<div class="course" data-course-id=<%= course.id %>>
+					<div class="course-image">
+						<img src=<%= course.course_img_url %> alt="Course Image">
+					</div>
+					<div class="course-description">
+						<%= link_to course.short_title, course.course_url %>
+						<p><%= School.short_school_name(course.school.name) %></p>
+						<div class="course-date">
+							<% if course.start_date == nil %>
+								<span class="date-display">Start Date: TBD</span>
+							<% else %>
+								<span class="date-display">Start Date: <%= course.start_date %></span>
+							<% end %>
 						</div>
 					</div>
 				<% end %>
@@ -66,7 +65,7 @@
 	<div class="user-current-courses-title">
 		<h3>Your Current Courses</h3>
 	</div>
-	<div class="courses-container">
+	<div class="courses-container" id="current-courses">
 		<% if @current_courses.nil? || @current_courses.empty? %>
 			<div class="dashboard-message">
 				<h3>You have not added any courses.</h3>
@@ -98,7 +97,7 @@
 	<div class="user-completed-courses-title">
 		<h3>Your Completed Courses</h3>
 	</div>
-	<div class="courses-container">
+	<div class="courses-container" id="complete-courses">
 		<% if @completed_courses.nil? || @completed_courses.empty? %>
 			<div class="dashboard-message">
 				<h3>You have not completed any courses.</h3>
@@ -155,4 +154,20 @@
 	  <h4>Course Description</h4>
 	  <iframe seamless class="overlay-course-description"></iframe>
 	</div>
+</div>
+
+<div class='hidden'>
+  <div class="dashboard-course-template" data-course-id="">
+      <div class="course-image">
+        <img src="" alt="Course Image">
+        <div class="course-description">
+          <a href=""></a>
+          <p></p>
+          <div class="course-date">
+            <span class="date-display"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 </div>
