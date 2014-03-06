@@ -25,13 +25,13 @@ iframe::-webkit-scrollbar-track {
 /* ************ */
 .search {
   position: absolute;
-  left: 25%;
-  right: 25%;
+  left: 0;
+  right: 0;
   top: 15px;
 }
 .search input {
   margin: auto;
-  width: 500px;
+  width: 35%;
   border-radius: 25px;
   font-family: 'Helvetica';
   font-size: 14px;
@@ -58,10 +58,9 @@ html {
 * { margin: 0; padding: 0; }
 
 .container, .featured-courses-title {
-  margin-top: 106px;
+  margin-top: 80px;
   font-family: 'ProximaNova-Light', sans-serif;
   src: url('/fonts/ProximaNova-Light.otf');
-  /*font-family: 'Proxima Nova','Lucida Grande','Lucida Sans Unicode','Arial', sans-serif;*/
   text-rendering: optimizeLegibility;
   font-size: 80%;
   color: #494d55;
@@ -91,18 +90,72 @@ body {
 }
 
 .nav-bar ul {
+  position: absolute;
   font-size: 20px;
   padding-top: 15px;
+  left: 0;
+  right: 0;
+}
+
+.nav-bar li {
+  padding-right: 10px;
 }
 
 .nav-bar img {
   height: 100px;
-  width: 400px;
+  width: 27%;
   padding-bottom: 10px;
   position: absolute;
   top: 0;
   left: 0;
   z-index: 200;
+}
+
+.mobile-menu {
+  display: none;
+  font-size: 20px;
+  padding-top: 15px;
+  width: 25%;
+}
+
+@media screen and (max-width: 450px) {
+  .nav-bar img {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    background-color: #F5F5F5;
+    margin: auto;
+    width: 100%;
+    z-index: 200;
+    border-bottom: #dadfe1 1px solid;
+  }
+
+  .buffer {
+    padding-top: 60px;
+  }
+
+  .buffer-dashboard {
+    padding-top: 150px;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    text-align: center;
+  }
+  .nav-bar ul {
+    display: none;
+  }
+  .search input {
+    width: 304px;
+    text-align: center;
+  }
+  .search {
+    position: absolute;
+    left: 0;
+  }
 }
 
 div.container {
@@ -302,8 +355,6 @@ nav li {
 }
 
 .overlay-ratings {
-  /*margin: 0 5px;*/
-  /*width: 96%;*/
   width: 100%;
   display: inline-block;
   height: 10%;
@@ -333,7 +384,6 @@ nav li {
 }
 
 .overlay-teacher img {
-  /*display: inline;*/
   width: 30%;
   border: #dadfe1 1px solid;
   border-radius: 5px;
