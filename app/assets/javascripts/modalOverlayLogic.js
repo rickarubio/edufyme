@@ -23,6 +23,12 @@ var modalOverlayLogic = (function() {
         var a = $('#current-user-added-classes').attr('data-added-course-ids');
         a = a.replace(courseID + ", ", "");
         $('#current-user-added-classes').replaceWith("<div id='current-user-added-classes' display='hidden' data-added-course-ids='" + a + "' ></div>");
+        var b = $('#current-user-favorited-classes').attr('data-favorited-course-ids');
+        b = b.replace(courseID + ", ", "");
+        $('#current-user-favorited-classes').replaceWith("<div id='current-user-favorited-classes' display='hidden' data-favorited-course-ids='" + b + "' ></div>");
+        var c = $('#current-user-completed-classes').attr('data-completed-course-ids');
+        c = c.replace(courseID + ", ", "");
+        $('#current-user-completed-classes').replaceWith("<div id='current-user-completed-classes' display='hidden' data-completed-course-ids='" + c + "' ></div>");
         $('.overlay-add-course').css('display', 'inherit');
         $('.overlay-remove-course').css('display', 'none');
         $('.unfavorite-course').css('display', 'none');
@@ -80,6 +86,9 @@ var modalOverlayLogic = (function() {
         method: 'PUT',
         data: {"course_id": courseID, "update_action": {"favorited": false}, "update_params": "fave"}
       }).done(function(result){
+        var a = $('#current-user-favorited-classes').attr('data-favorited-course-ids');
+        a = a.replace(courseID + ", ", "");
+        $('#current-user-favorited-classes').replaceWith("<div id='current-user-favorited-classes' display='hidden' data-favorited-course-ids='" + a + "' ></div>");
         $('.favorite-course').css('display', 'inherit');
         $('.unfavorite-course').css('display', 'none')
       }).fail(function(){
@@ -112,6 +121,9 @@ var modalOverlayLogic = (function() {
         method: 'PUT',
         data: {"course_id": courseID, "update_action": {"completed": false}, "update_params": "complete"}
       }).done(function(result){
+        var a = $('#current-user-completed-classes').attr('data-completed-course-ids');
+        a = a.replace(courseID + ", ", "");
+        $('#current-user-completed-classes').replaceWith("<div id='current-user-completed-classes' display='hidden' data-completed-course-ids='" + a + "' ></div>");
         $('.complete-course').css('display', 'inherit');
         $('.uncomplete-course').css('display', 'none');
       }).fail(function(){
