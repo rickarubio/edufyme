@@ -13,18 +13,28 @@ class Course < ActiveRecord::Base
     search_terms = search_terms.downcase.split(' ')
     results = []
 
-    # check the title, if there's no match, check the description, for each course
-    # ie: 'ruby programming' in title or 'ruby programming' description
+    # Check each course's title. Push in the matches.
+    # ie: 'ruby programming' in title
     results << Course.all.select do |course| 
-      course.title.downcase.match(search_terms.join(' ')) || course.description.downcase.match(search_terms.join(' '))
+      course.title.downcase.match(search_terms.join(' ')))
     end
 
-    # check the title for each search term individually
-    # ie: 'ruby' in title or 'programming' in title
-    search_terms.each do |term|
-      Course.all.each do |course|
-        results.push(course) if course.title.downcase.match(term)
-      end
+    # Check each course's description. Push in the matches.
+    # ie: 'ruby programming' in description
+    results << Course.all.select do |course| 
+      course.description.downcase.match(search_terms.join(' ')))
+    end
+
+    # check the title for the first search term only
+    # ie: 'ruby' anywhere in title
+    Course.all.each do |course|
+      results.push(course) if course.title.downcase.match(search_terms[0])
+    end
+
+    # check the description for the first search term only
+    # ie: 'ruby' in description
+    Course.all.each do |course|
+      results.push(course) if course.description.downcase.match(search_terms[0])
     end
 
     # check the description for each search term individually
