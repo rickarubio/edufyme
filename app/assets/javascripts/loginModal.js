@@ -60,14 +60,7 @@
 
 $(function(){
   $("#signupform").submit(validateParams.checkSignUp);
-  $('#loginform').on('ajax:success', function(){
-    window.location.href = "/"
-  })
-  $('#loginform').on('ajax:error', function(){
-    $('#loginmodal .notice').empty();
-    $('#loginmodal .notice').append("Email or password incorrect")
-    })
-
+  $('#loginform').submit(validateParams.checkLogin);
 });
 
 var validateParams = (function() {
@@ -93,11 +86,21 @@ var validateParams = (function() {
       })
     },
 
-    // loginError: function() {
-    //   debugger
-    //   $('#loginmodal .notice').empty();
-    //   $('#loginmodal .notice').append(customError.responseText);
-    // })
-    // }
+    checkLogin: function() {
+      var userEmail = $('#loginmodal #user_email').val();
+      var userPassword = $('#loginmodal #user_password').val();
+      var userRememberMe = $('#loginmodal #user_remember_me').val();
+      event.preventDefault();
+      $.ajax({
+        url: '/users/sign_in',
+        method: 'POST',
+        data: {user: {email: userEmail, password: userPassword, remember_me: userRememberMe}}
+      }).done(function(data){
+        window.location.href = "/"
+      }).fail(function(customError){
+        $('#loginmodal .notice').empty();
+        $('#loginmodal .notice').append(customError.responseText);
+      })
+    }
   }
 })();
