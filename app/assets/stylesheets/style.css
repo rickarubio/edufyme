@@ -125,21 +125,30 @@ nav li {
   padding-right: 30px;
 }
 
-.featured-courses-title h3{
+.featured-courses-title h2 {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
+  color: #2ba6cb;
   font-family: 'ProximaNova-Light', sans-serif;
   src: url('/fonts/ProximaNova-Light.otf');
+  font-size: 28px
+}
+
+#featured-title h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2ba6cb;
+  font-family: 'ProximaNova-Light', sans-serif;
+  src: url('/fonts/ProximaNova-Light.otf');
+  font-size: 24px;
 }
 
 .courses-container {
-  /*display: inline-block;*/
   margin: 0 auto;
   height: 90%;
   width: 90%;
   max-width: 1000px;
   min-width: 600px;
-  /*background: yellow;*/
 }
 
 .course {
@@ -178,7 +187,7 @@ nav li {
 }
 
 .dashboard-message {
-  background-color: rgba(150, 150, 150, 0.5)
+  background-color: #F5F5F5;
 }
 
 .course-image {
@@ -347,14 +356,29 @@ nav h1 {
 
 .user-current-courses-title h3 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #2ba6cb;
+  font-family: 'ProximaNova-Light', sans-serif;
+  src: url('/fonts/ProximaNova-Light.otf');
+  font-size: 24px;
 }
 
 .user-favorited-courses-title h3 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #2ba6cb;
+  font-family: 'ProximaNova-Light', sans-serif;
+  src: url('/fonts/ProximaNova-Light.otf');
+  font-size: 24px;
 }
 
 .user-completed-courses-title h3 {
   text-align: center;
+  margin-bottom: 20px;
+  color: #2ba6cb;
+  font-family: 'ProximaNova-Light', sans-serif;
+  src: url('/fonts/ProximaNova-Light.otf');
+  font-size: 24px;
 }
 
 .user-courses-title h3 {
