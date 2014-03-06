@@ -17,8 +17,9 @@ var Search = (function(){
       $('.search input').on('keyup', function(e) {
         var enterKeyCode = 13;
         if (e.keyCode === enterKeyCode) {
+          var searchTerms = $('.search input').val();
+          Search.submitQuery(searchTerms);
           Search.clearSearch();
-          Search.submitQuery();
         }
       });
     },
