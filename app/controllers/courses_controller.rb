@@ -16,12 +16,8 @@ class CoursesController < ApplicationController
   end
 
   def search
-    @courses = Course.search_for(params[:search])
+    @courses = Course.search_for(params["terms"])
     render json: @courses
   end
 
-  def filter
-    @courses = Course.filter(params[:filter_options])
-    render :search_results
-  end
 end

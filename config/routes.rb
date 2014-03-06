@@ -8,6 +8,8 @@ Edufyme::Application.routes.draw do
   resources :users, only: [] do
     resources :courses, only: [:create, :destroy, :update], controller: "user_courses"
   end
+
+  match 'courses/search/:terms', to: 'courses#search', as: :search, via: :get
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
