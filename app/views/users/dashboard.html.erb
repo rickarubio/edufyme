@@ -15,12 +15,12 @@
   <div id="current-user-completed-classes" display="hidden" data-completed-course-ids="<%= completed_array %>">
   </div>
 <% end %>
-
+<div id="dashboard-page">
 <div class="container">
 	<div class="user-favorited-courses-title">
 		<h3>Your Favorite Courses</h3>
 	</div>
-	<div class="courses-container">
+	<div class="courses-container" id="favorite-courses">
 		<% if @favorited_courses.nil? || @favorited_courses.empty? %>
 			<div class="dashboard-message">
 				<h3>You have not favorited any courses.</h3>
@@ -52,7 +52,7 @@
 	<div class="user-current-courses-title">
 		<h3>Your Current Courses</h3>
 	</div>
-	<div class="courses-container">
+	<div class="courses-container" id="current-courses">
 		<% if @current_courses.nil? || @current_courses.empty? %>
 			<div class="dashboard-message">
 				<h3>You have not added any courses.</h3>
@@ -84,7 +84,7 @@
 	<div class="user-completed-courses-title">
 		<h3>Your Completed Courses</h3>
 	</div>
-	<div class="courses-container">
+	<div class="courses-container" id="complete-courses">
 		<% if @completed_courses.nil? || @completed_courses.empty? %>
 			<div class="dashboard-message">
 				<h3>You have not completed any courses.</h3>
@@ -141,4 +141,20 @@
 	  <h4>Course Description</h4>
 	  <iframe seamless class="overlay-course-description"></iframe>
 	</div>
+</div>
+
+<div class='hidden'>
+  <div class="dashboard-course-template" data-course-id="">
+      <div class="course-image">
+        <img src="" alt="Course Image">
+        <div class="course-description">
+          <a href=""></a>
+          <p></p>
+          <div class="course-date">
+            <span class="date-display"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
 </div>
