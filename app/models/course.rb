@@ -16,32 +16,32 @@ class Course < ActiveRecord::Base
     # Check each course's title. Push in the matches.
     # ie: 'ruby programming' in title
     results << Course.all.select do |course| 
-      course.title.downcase.match(search_terms.join(' '))
+      course.title.downcase.match(/(^#{search_terms.join(' ')}\W)|(\W#{search_terms.join(' ')}\W)|(\W#{search_terms.join(' ')}\W?$)|(^#{search_terms.join(' ')}$)/i)
     end
 
     # Check each course's description. Push in the matches.
     # ie: 'ruby programming' in description
     results << Course.all.select do |course| 
-      course.description.downcase.match(search_terms.join(' '))
+      course.description.downcase.match(/(^#{search_terms.join(' ')}\W)|(\W#{search_terms.join(' ')}\W)|(\W#{search_terms.join(' ')}\W?$)|(^#{search_terms.join(' ')}$)/i)
     end
 
     # check the title for the first search term only
     # ie: 'ruby' anywhere in title
     Course.all.each do |course|
-      results.push(course) if course.title.downcase.match(search_terms[0])
+      results.push(course) if course.title.downcase.match(/(^#{search_terms[0]}\W)|(\W#{search_terms[0]}\W)|(\W#{search_terms[0]}\W?$)|(^#{search_terms[0]}$)/i)
     end
 
     # check the description for the first search term only
     # ie: 'ruby' in description
     Course.all.each do |course|
-      results.push(course) if course.description.downcase.match(search_terms[0])
+      results.push(course) if course.description.downcase.match(/(^#{search_terms[0]}\W)|(\W#{search_terms[0]}\W)|(\W#{search_terms[0]}\W?$)|(^#{search_terms[0]}$)/i)
     end
 
     # check the title for each search term individually
     # ie: 'ruby' anywhere in the title or 'programming' anywhere in title
     search_terms.each do |term|
       Course.all.each do |course|
-        results.push(course) if course.title.downcase.match(term)
+        results.push(course) if course.title.downcase.match(/(^#{term}\W)|(\W#{term}\W)|(\W#{term}\W?$)|(^#{term}$)/i)
       end
     end
 
@@ -49,7 +49,7 @@ class Course < ActiveRecord::Base
     # ie: 'ruby' anywhere in the description or 'programming' anywhere in desc
     search_terms.each do |term|
       Course.all.each do |course|
-        results.push(course) if course.description.downcase.match(term)
+        results.push(course) if course.description.downcase.match(/(^#{term}\W)|(\W#{term}\W)|(\W#{term}\W?$)|(^#{term}$)/i)
       end
     end
 
