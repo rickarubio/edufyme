@@ -24,7 +24,6 @@ class Udemy
       courses = category_url.search('.course-card-wide a').map { |link| link['href'] } #Creating an array of course_urls
       img_links = category_url.search('.thumb img').map { |img| img['src'] } #find img links
       courses.each_with_index do |course, idx|
-        Kernel.sleep(1); # pause for 1 second to avoid ban
         Udemy.parse_course_page(Nokogiri::HTML(HTTParty.get(course)), img_links[idx]) #Parsing each course_url and passing to next method for creation.
       end
       new_category_page = Nokogiri::HTML(HTTParty.get("https://www.udemy.com/courses/#{category}/?price=free&view=list&lang=en&p=#{counter}"))
