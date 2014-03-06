@@ -23,6 +23,7 @@ iframe::-webkit-scrollbar-track {
 }
 
 /* ************ */
+
 .search {
   position: absolute;
   left: 0;
@@ -91,10 +92,9 @@ body {
 
 .nav-bar ul {
   position: absolute;
+  right: 0;
   font-size: 20px;
   padding-top: 15px;
-  left: 0;
-  right: 0;
 }
 
 .nav-bar li {
@@ -118,6 +118,27 @@ body {
   width: 25%;
 }
 
+@media screen and (max-width: 808px) {
+  .mobile-menu {
+    display: block;
+    position: fixed;
+    background-color: #F5F5F5;
+    margin: auto;
+    width: 100%;
+    z-index: 99;
+    border-bottom: #dadfe1 1px solid;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    text-align: center;
+  }
+
+  .nav-bar ul {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .nav-bar img {
     display: none;
@@ -129,7 +150,7 @@ body {
     background-color: #F5F5F5;
     margin: auto;
     width: 100%;
-    z-index: 200;
+    z-index: 99;
     border-bottom: #dadfe1 1px solid;
   }
 
@@ -292,6 +313,7 @@ nav li {
   border-radius: 5px;
   background-color: #FFFFFF;
   padding: 10px;
+  min-width: 425px;
 }
 
 .exit-modal {
