@@ -67,6 +67,7 @@ var validateParams = (function() {
 
   return {
     checkSignUp: function() {
+      debugger
       var userEmail = $('#signupmodal #user_email').val();
       var userPassword = $('#signupmodal #user_password').val();
       var userPasswordConfirm = $('#signupmodal #user_password_confirmation').val();
