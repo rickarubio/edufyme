@@ -90,10 +90,15 @@ body {
 }
 
 .nav-bar ul {
+  position: absolute;
   font-size: 20px;
   padding-top: 15px;
-  width: 25%;
-  float: right;
+  left: 0;
+  right: 0;
+}
+
+.nav-bar li {
+  padding-right: 10px;
 }
 
 .nav-bar img {
@@ -130,6 +135,10 @@ body {
 
   .buffer {
     padding-top: 60px;
+  }
+
+  .buffer-dashboard {
+    padding-top: 150px;
   }
 
   .mobile-menu ul {

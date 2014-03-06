@@ -29,34 +29,36 @@
 		  <% end %>
 		</ul>
 	</div>
+	<div class="buffer-dashboard">
 	<div class="user-favorited-courses-title">
 		<h3>Your Favorite Courses</h3>
 	</div>
-	<div class="courses-container">
-		<% if @favorited_courses.nil? || @favorited_courses.empty? %>
-			<div class="dashboard-message">
-				<h3>You have not favorited any courses.</h3>
-			</div>
-		<% else %>
-			<% @favorited_courses.each do |course| %>
-				<div class="course" data-course-id=<%= course.id %>>
-					<div class="course-image">
-						<img src=<%= course.course_img_url %> alt="Course Image">
-					</div>
-					<div class="course-description">
-						<%= link_to course.short_title, course.course_url %>
-						<p><%= School.short_school_name(course.school.name) %></p>
-						<div class="course-date">
-							<% if course.start_date == nil %>
-								<span class="date-display">Start Date: TBD</span>
-							<% else %>
-								<span class="date-display">Start Date: <%= course.start_date %></span>
-							<% end %>
+		<div class="courses-container">
+			<% if @favorited_courses.nil? || @favorited_courses.empty? %>
+				<div class="dashboard-message">
+					<h3>You have not favorited any courses.</h3>
+				</div>
+			<% else %>
+				<% @favorited_courses.each do |course| %>
+					<div class="course" data-course-id=<%= course.id %>>
+						<div class="course-image">
+							<img src=<%= course.course_img_url %> alt="Course Image">
+						</div>
+						<div class="course-description">
+							<%= link_to course.short_title, course.course_url %>
+							<p><%= School.short_school_name(course.school.name) %></p>
+							<div class="course-date">
+								<% if course.start_date == nil %>
+									<span class="date-display">Start Date: TBD</span>
+								<% else %>
+									<span class="date-display">Start Date: <%= course.start_date %></span>
+								<% end %>
+							</div>
 						</div>
 					</div>
-				</div>
+				<% end %>
 			<% end %>
-		<% end %>
+		</div>
 	</div>
 </div>
 
