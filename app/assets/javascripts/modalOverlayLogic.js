@@ -10,6 +10,20 @@ $(function(){
 
 var modalOverlayLogic = (function() {
   // _private vars and functions
+  function _appendCourse(course, school) {
+    var courseTemplate = $('.dashboard-course-template').clone()
+    courseTemplate.attr('data-course-id', course.id)
+    courseTemplate.find('img').attr('src', course.course_img_url)
+    courseTemplate.find('a').attr('href', course.course_url)
+    courseTemplate.find('.course-description a').append(course.title.slice(0, 36))
+    courseTemplate.find('.course-description p').append(school.name.slice(0, 39))
+    if (course.start_date === null) {
+      courseTemplate.find('.course-description .date-display').text("Start Date: TBD")
+    } else {
+      courseTemplate.find('.course-description .date-display').text("Start Date: " + course.start_date)
+    }
+    return courseTemplate
+  }
 
   return {
     removeCourseFromUserDashboard: function() {
@@ -132,3 +146,4 @@ var modalOverlayLogic = (function() {
     }
   }
 })();
+
