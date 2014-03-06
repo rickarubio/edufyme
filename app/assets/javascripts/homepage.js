@@ -5,8 +5,8 @@ $(function() {
 
 var bindEvents = function() {
 
-  $('#loginmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
-  $('#signupmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  $('.loginmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
+  $('.signupmodaltrigger').leanModal({ top: 110, overlay: 0.45, closeButton: ".hidemodal" });
   $('.courses-container').on('click', '.course', function(e) {
     e.preventDefault();
     Overlay.display();
@@ -170,8 +170,8 @@ var disableDeviseLoginLogout = (function() {
 var CourseDescription = (function() {
   // _private vars and _functions
   _applyStyle = function () {
-    var $head = $("iframe").contents().find("head");                
-    $head.append($("<link/>", 
+    var $head = $("iframe").contents().find("head");
+    $head.append($("<link/>",
       { rel: "stylesheet", href: "/assets/style.css", type: "text/css" }));
     $("iframe").contents().find("html").css("overflow-y", "scroll");
   }

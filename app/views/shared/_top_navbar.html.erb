@@ -12,8 +12,8 @@
         <li><%= link_to "Dashboard", user_dashboard_path(current_user) %></li>
         <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
       <% else %>
-        <li><a href="#loginmodal" class="flatbtn" id="loginmodaltrigger">Log In</a></li>
-        <li><a href="#signupmodal" class="flatbtn" id="signupmodaltrigger">Sign Up</a></li>
+        <li><a href="#loginmodal" class="flatbtn loginmodaltrigger">Log In</a></li>
+        <li><a href="#signupmodal" class="flatbtn signupmodaltrigger">Sign Up</a></li>
       <% end %>
     </ul>
   </nav>
