@@ -19,7 +19,7 @@ class RegistrationsController < Devise::RegistrationsController
       end
 
       if params[:sign_up_params][:password].nil? || params[:sign_up_params][:password].length < 8
-        flash[:notice] << "You must enter a valid password"
+        flash[:notice] << "Passwords must be at least 8 characters"
       end
 
       if params[:sign_up_params][:password] != params[:sign_up_params][:password_confirmation]
